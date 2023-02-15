@@ -1,0 +1,1572 @@
+fileFormatVersion: 2
+guid: 2855448beec4a3e40ae1cee9f46f38f8
+ModelImporter:
+  serializedVersion: 20300
+  internalIDToNameTable:
+  - first:
+      74: 5277993699677943682
+    second: AttackCombo
+  - first:
+      74: 2922205052314921072
+    second: AttackCombo0
+  - first:
+      74: 7988952907770854156
+    second: AttackCombo1
+  - first:
+      74: 8350816339630823838
+    second: Equip
+  - first:
+      74: 2025806298950467089
+    second: Strafe_walk_right
+  - first:
+      74: 2646996825311030020
+    second: StrafeDual_Idle
+  - first:
+      74: -1328601369655406461
+    second: StrafeDual_walk_back
+  - first:
+      74: -3564261850112168946
+    second: StrafeDual_walk_forward
+  - first:
+      74: -4284288516166063591
+    second: StrafeDual_walk_left
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: AttackCombo
+      takeName: AttackCombo
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AttackCombo0
+      takeName: AttackCombo0
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 27
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AttackCombo1
+      takeName: AttackCombo1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Equip
+      takeName: Equip
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Strafe_walk_right
+      takeName: Strafe_walk_right
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StrafeDual_Idle
+      takeName: StrafeDual_Idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StrafeDual_walk_back
+      takeName: StrafeDual_walk_back
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StrafeDual_walk_forward
+      takeName: StrafeDual_walk_forward
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StrafeDual_walk_left
+      takeName: StrafeDual_walk_left
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: VBOT_:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: VBOT_:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Melee_Strafe2HandMoveset(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Melee_Strafe2HandMoveset(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: VBOT_:Hips
+      parentName: Armature
+      position: {x: 0.019285828, y: 96.128914, z: -7.497497}
+      rotation: {x: -0.113124475, y: 0.045849316, z: -0.023345081, w: 0.9922479}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips_Holder
+      parentName: VBOT_:Hips
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHolder@GreatKatana
+      parentName: Hips_Holder
+      position: {x: 21.200003, y: -14.100001, z: -41.7}
+      rotation: {x: 0.7526456, y: 0.6571517, z: -0.029746713, w: 0.028131854}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vKanata_Long
+      parentName: LeftHolder@GreatKatana
+      position: {x: 9.892529, y: -2.6729991, z: -67.15892}
+      rotation: {x: 0.4224947, y: 0.4156982, z: 0.56388694, w: 0.5750867}
+      scale: {x: 99.999985, y: 99.99993, z: 99.99992}
+    - name: vKatana_Long_Holder
+      parentName: LeftHolder@GreatKatana
+      position: {x: 2.5, y: -2.5, z: -44.900005}
+      rotation: {x: 0.42249474, y: 0.4156983, z: 0.563887, w: 0.5750867}
+      scale: {x: 99.99995, y: 99.99991, z: 99.99992}
+    - name: LeftHolder@Katana
+      parentName: Hips_Holder
+      position: {x: -42.2, y: 0, z: 0}
+      rotation: {x: -1.1224966e-12, y: 0.00000005966939, z: -1.7249036e-12, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vKanata
+      parentName: LeftHolder@Katana
+      position: {x: 20.498869, y: 4.995905, z: 11.983433}
+      rotation: {x: 0.92387867, y: 0.000026632091, z: 0.0000010779559, w: -0.38268554}
+      scale: {x: 100, y: 100.000015, z: 100}
+    - name: vKatanaHolder
+      parentName: LeftHolder@Katana
+      position: {x: 20.5, y: -11.100001, z: -3.6}
+      rotation: {x: 0.92387867, y: 0.000026617192, z: 0.0000011077587, w: -0.38268554}
+      scale: {x: 100, y: 99.999985, z: 99.999985}
+    - name: LeftHolder@Sword
+      parentName: Hips_Holder
+      position: {x: 20.400053, y: -45.5, z: -31.299967}
+      rotation: {x: 0.6735811, y: 0.636109, z: -0.25088015, w: 0.28055832}
+      scale: {x: 9.969138, y: 6.2752857, z: 104.13314}
+    - name: Holder
+      parentName: LeftHolder@Sword
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SwordV_short
+      parentName: LeftHolder@Sword
+      position: {x: -0, y: 0.000018996636, z: -0.6069165}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 10.030962, y: 15.935532, z: 0.96030974}
+    - name: RightHolder@GreatKatana
+      parentName: Hips_Holder
+      position: {x: -9.2, y: -10, z: -49.7}
+      rotation: {x: 0.7440553, y: 0.65870523, z: 0.051896147, w: 0.09897469}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vKanata_Long 1
+      parentName: RightHolder@GreatKatana
+      position: {x: 7.5094595, y: 3.3010728, z: -71.1633}
+      rotation: {x: 0.5080094, y: 0.3184851, z: 0.54742926, w: 0.5837936}
+      scale: {x: 99.999985, y: 99.99995, z: 99.99991}
+    - name: vKatana_Long_Holder 1
+      parentName: RightHolder@GreatKatana
+      position: {x: -0.3, y: 0.7, z: -49.2}
+      rotation: {x: 0.50800943, y: 0.3184851, z: 0.54742926, w: 0.5837935}
+      scale: {x: 99.99998, y: 99.99991, z: 99.99989}
+    - name: RightHolder@Katana
+      parentName: Hips_Holder
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vKanata 1
+      parentName: RightHolder@Katana
+      position: {x: 22.398884, y: 4.99592, z: 11.983594}
+      rotation: {x: 0.92387867, y: 0.000026609256, z: 0.0000010824339, w: -0.38268554}
+      scale: {x: 100, y: 100.000015, z: 100}
+    - name: vKatanaHolder (1)
+      parentName: RightHolder@Katana
+      position: {x: 22.4, y: -11.100001, z: -3.6}
+      rotation: {x: 0.92387867, y: 0.000026594353, z: 0.0000010824334, w: -0.38268554}
+      scale: {x: 100, y: 100.00003, z: 99.999985}
+    - name: RightHolder@Sword
+      parentName: Hips_Holder
+      position: {x: -19.051582, y: -44.17305, z: -33.5914}
+      rotation: {x: 0.6735811, y: 0.63610905, z: -0.25088015, w: 0.2805584}
+      scale: {x: 9.969138, y: 6.2752867, z: 104.13318}
+    - name: Holder 1
+      parentName: RightHolder@Sword
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SwordV_short 1
+      parentName: RightHolder@Sword
+      position: {x: -0, y: 0.000018996636, z: -0.6069165}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 10.030962, y: 15.935532, z: 0.96030974}
+    - name: VBOT_:LeftUpLeg
+      parentName: VBOT_:Hips
+      position: {x: -10.920647, y: -5.3976464, z: 1.9481007}
+      rotation: {x: -0.2554234, y: -0.017527573, z: 0.9638791, w: 0.07340902}
+      scale: {x: 1.0000803, y: 1.0000002, z: 1.0000001}
+    - name: VBOT_:LeftLeg
+      parentName: VBOT_:LeftUpLeg
+      position: {x: 0.000001373686, y: 46.4423, z: -0.00000012147937}
+      rotation: {x: -0.3090537, y: 0.06810436, z: 0.047853153, w: 0.9473952}
+      scale: {x: 0.9999995, y: 0.9999993, z: 0.99999976}
+    - name: hitBox
+      parentName: VBOT_:LeftLeg
+      position: {x: -0.00016933688, y: 29.768017, z: 0.00010704997}
+      rotation: {x: -0.70471925, y: 0.05806745, z: 0.05806701, w: 0.7047178}
+      scale: {x: 14.99884, y: 14.999982, z: 42.525715}
+    - name: VBOT_:LeftFoot
+      parentName: VBOT_:LeftLeg
+      position: {x: 0.00000043968424, y: 42.52575, z: 0.0000009657814}
+      rotation: {x: 0.72005767, y: -0.05996074, z: 0.115610406, w: 0.68158346}
+      scale: {x: 1.0000001, y: 1, z: 1.0000004}
+    - name: leftFoot_trigger
+      parentName: VBOT_:LeftFoot
+      position: {x: -0.011804329, y: 6.458853, z: -8.523047}
+      rotation: {x: 0.0037842332, y: 0.4449844, z: 0.89552945, w: 0.0012697971}
+      scale: {x: 99.99203, y: 100.00004, z: 100.000015}
+    - name: VBOT_:LeftToeBase
+      parentName: VBOT_:LeftFoot
+      position: {x: -0.0000004688045, y: 16.945314, z: -0.0000008046626}
+      rotation: {x: 0.31663343, y: 0.0551643, z: -0.017313315, w: 0.94678426}
+      scale: {x: 0.99999976, y: 0.9999996, z: 0.9999995}
+    - name: VBOT_:LeftToe_End
+      parentName: VBOT_:LeftToeBase
+      position: {x: -0.0000015217809, y: 6.208491, z: 0.000000059604645}
+      rotation: {x: -0.000000012223608, y: -0.000004991947, z: 0.00000046117927, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: VBOT_:LeftToe_End_end
+      parentName: VBOT_:LeftToe_End
+      position: {x: -0, y: 6.20849, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightUpLeg
+      parentName: VBOT_:Hips
+      position: {x: 10.920648, y: -5.3976483, z: 1.6830438}
+      rotation: {x: 0.039577268, y: -0.004817379, z: 0.99387795, w: -0.103039354}
+      scale: {x: 1.0005851, y: 0.99999964, z: 1.0000213}
+    - name: VBOT_:RightLeg
+      parentName: VBOT_:RightUpLeg
+      position: {x: 0.0000003669938, y: 46.442978, z: 0.00000006676418}
+      rotation: {x: -0.3279133, y: 0.025067814, z: -0.0056276214, w: 0.9443584}
+      scale: {x: 0.99999946, y: 1.0000006, z: 0.99999976}
+    - name: hitBox 1
+      parentName: VBOT_:RightLeg
+      position: {x: -0.000093221715, y: 29.760756, z: 0.00008320811}
+      rotation: {x: -0.7045156, y: -0.060479347, z: -0.06048809, w: 0.7045149}
+      scale: {x: 14.991486, y: 14.999446, z: 42.51527}
+    - name: VBOT_:RightFoot
+      parentName: VBOT_:RightLeg
+      position: {x: 0.00000071883176, y: 42.515278, z: -0.0000045327465}
+      rotation: {x: 0.76254874, y: -0.0758487, z: -0.06777344, w: 0.63888425}
+      scale: {x: 1.0000006, y: 1.0000002, z: 0.9999993}
+    - name: rightFoot_trigger
+      parentName: VBOT_:RightFoot
+      position: {x: 0.012095509, y: 6.399415, z: -8.567915}
+      rotation: {x: -0.003696845, y: 0.4480981, z: 0.893976, w: -0.0012213633}
+      scale: {x: 99.94154, y: 100.00002, z: 99.99792}
+    - name: VBOT_:RightToeBase
+      parentName: VBOT_:RightFoot
+      position: {x: 0.000000012107192, y: 17.102888, z: 0.0000004842877}
+      rotation: {x: 0.29956514, y: -0.055265628, z: 0.017920047, w: 0.95230526}
+      scale: {x: 0.9999993, y: 1.0000002, z: 0.9999997}
+    - name: VBOT_:RightToe_End
+      parentName: VBOT_:RightToeBase
+      position: {x: 0.000000996515, y: 6.241361, z: -0.0000001788139}
+      rotation: {x: -0.000000027357602, y: 0.000034474506, z: -0.0000000888831, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: VBOT_:RightToe_End_end
+      parentName: VBOT_:RightToe_End
+      position: {x: -0, y: 6.2414274, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:Spine
+      parentName: VBOT_:Hips
+      position: {x: -1.6871124e-10, y: 9.702705, z: -0.15236208}
+      rotation: {x: 0.09021906, y: -0.014591219, z: 0.01165794, w: 0.99574685}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: VBOT_:Spine1
+      parentName: VBOT_:Spine
+      position: {x: 1.02090515e-11, y: 11.321213, z: -0.0000001788139}
+      rotation: {x: 0.04720681, y: -0.029194364, z: 0.019022657, w: 0.9982772}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: VBOT_:Spine2
+      parentName: VBOT_:Spine1
+      position: {x: -4.7400963e-12, y: 12.938553, z: 0.00000017881393}
+      rotation: {x: -0.000000011175873, y: 6.123234e-17, z: -6.1232336e-17, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Spine2_Holders
+      parentName: VBOT_:Spine2
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHolder@Axe
+      parentName: Spine2_Holders
+      position: {x: 22.472477, y: -24.31954, z: -10.556405}
+      rotation: {x: 0.6587701, y: 0.24905528, z: 0.30086103, w: 0.64302105}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Holder 2
+      parentName: LeftHolder@Axe
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vAxe
+      parentName: LeftHolder@Axe
+      position: {x: -0, y: 0, z: -38.7}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: LeftHolder@GreatShield
+      parentName: Spine2_Holders
+      position: {x: -0.1004227, y: -8.739631, z: -14.947184}
+      rotation: {x: 0.1723511, y: 0.9849957, z: 0.0070221936, w: -0.005415691}
+      scale: {x: 100.000275, y: 100.000015, z: 100.00029}
+    - name: Holder 3
+      parentName: LeftHolder@GreatShield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vShield
+      parentName: LeftHolder@GreatShield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -4.966919e-17, y: 7.093497e-17, z: -0.17364827, w: 0.9848077}
+      scale: {x: 1, y: 1.2, z: 1}
+    - name: LeftHolder@GreatSword
+      parentName: Spine2_Holders
+      position: {x: 22.5, y: -36, z: -10.7}
+      rotation: {x: 0.6587701, y: 0.24905528, z: 0.30086103, w: 0.64302105}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1.0000002}
+    - name: Holder 4
+      parentName: LeftHolder@GreatSword
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SwordV_long
+      parentName: LeftHolder@GreatSword
+      position: {x: 10.905051, y: -3.951087, z: -76.23708}
+      rotation: {x: -0.008466333, y: -0.13022803, z: -0.0024712535, w: 0.9914449}
+      scale: {x: 99.99996, y: 99.99996, z: 99.99997}
+    - name: LeftHolder@Shield
+      parentName: Spine2_Holders
+      position: {x: -0.1004227, y: -8.739631, z: -14.947184}
+      rotation: {x: 0.1723511, y: 0.98499566, z: 0.007022193, w: -0.0054156906}
+      scale: {x: 100.00014, y: 100.000015, z: 100.00017}
+    - name: Holder 5
+      parentName: LeftHolder@Shield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vShield 1
+      parentName: LeftHolder@Shield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -4.6566112e-10, y: -5.429345e-17, z: -0.000000014901159, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightHolder@Axe
+      parentName: Spine2_Holders
+      position: {x: -21.273136, y: -24.980482, z: -13.943113}
+      rotation: {x: 0.29691187, y: 0.653283, z: -0.6485953, w: -0.25374967}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Holder 6
+      parentName: RightHolder@Axe
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vAxe 1
+      parentName: RightHolder@Axe
+      position: {x: -0, y: 0, z: -38.7}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: RightHolder@GreatShield
+      parentName: Spine2_Holders
+      position: {x: -0.1004227, y: -8.739633, z: -14.947088}
+      rotation: {x: -0.41063422, y: 0.91175705, z: 0.008851734, w: -0.00053666683}
+      scale: {x: 100.00021, y: 100.00006, z: 100.00025}
+    - name: Holder 7
+      parentName: RightHolder@GreatShield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vShield 2
+      parentName: RightHolder@GreatShield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.42261833, w: 0.9063078}
+      scale: {x: 1, y: 1.2, z: 1}
+    - name: RightHolder@GreatSword
+      parentName: Spine2_Holders
+      position: {x: -21.3, y: -36.7, z: -14.100001}
+      rotation: {x: 0.29691187, y: 0.653283, z: -0.6485953, w: -0.25374967}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000008}
+    - name: Holder 8
+      parentName: RightHolder@GreatSword
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SwordV_long (1)
+      parentName: RightHolder@GreatSword
+      position: {x: 11.605279, y: 0.1489715, z: -76.73704}
+      rotation: {x: -0.008467283, y: -0.13022724, z: -0.0024707466, w: 0.99144495}
+      scale: {x: 99.999985, y: 100, z: 99.99996}
+    - name: RightHolder@Shield
+      parentName: Spine2_Holders
+      position: {x: -0.1004227, y: -8.739633, z: -14.947088}
+      rotation: {x: -0.41063422, y: 0.91175705, z: 0.008851733, w: -0.0005366661}
+      scale: {x: 100.00022, y: 100.00006, z: 100.000244}
+    - name: Holder 9
+      parentName: RightHolder@Shield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vShield 3
+      parentName: RightHolder@Shield
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -4.6566112e-10, y: -5.429345e-17, z: -0.000000014901159, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftShoulder
+      parentName: VBOT_:Spine2
+      position: {x: -6.233017, y: 12.723451, z: -0.060752567}
+      rotation: {x: 0.59490573, y: -0.37230515, z: 0.52153385, w: 0.48526123}
+      scale: {x: 0.99999946, y: 0.9999997, z: 0.9999995}
+    - name: VBOT_:LeftArm
+      parentName: VBOT_:LeftShoulder
+      position: {x: -0.00000041723246, y: 12.885075, z: 0.000009480863}
+      rotation: {x: -0.12190272, y: -0.09773775, z: 0.09853689, w: 0.98279065}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
+    - name: VBOT_:LeftForeArm
+      parentName: VBOT_:LeftArm
+      position: {x: -0.00000024976904, y: 28.782936, z: 0.000004796884}
+      rotation: {x: -0.0021508706, y: 0.022564424, z: 0.0019932713, w: 0.99974114}
+      scale: {x: 1.0000001, y: 0.99999964, z: 0.9999999}
+    - name: hitBox 2
+      parentName: VBOT_:LeftForeArm
+      position: {x: 0.00006672432, y: 20.919525, z: 0.00003534307}
+      rotation: {x: -0.70700896, y: -0.011784977, z: -0.0117853135, w: 0.7070082}
+      scale: {x: 15.000007, y: 15.000006, z: 29.885242}
+    - name: VBOT_:LeftHand
+      parentName: VBOT_:LeftForeArm
+      position: {x: -0.00000031946905, y: 29.885254, z: -0.000005662033}
+      rotation: {x: -0.074732676, y: 0.1337003, z: -0.022045929, w: 0.98795414}
+      scale: {x: 1.0000005, y: 1, z: 1.0000001}
+    - name: LeftHandlers
+      parentName: VBOT_:LeftHand
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: defaultHandler
+      parentName: LeftHandlers
+      position: {x: -2.399989, y: 9.499934, z: 4.5000143}
+      rotation: {x: -0.48683903, y: 0.5310278, z: -0.46867445, w: 0.5112157}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shieldHandler
+      parentName: LeftHandlers
+      position: {x: -4.3, y: -1.1, z: -5.3000007}
+      rotation: {x: 0.51378375, y: -0.471915, z: 0.5914073, w: -0.4044254}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandIndex1
+      parentName: VBOT_:LeftHand
+      position: {x: 3.306355, y: 10.214577, z: 0.16185996}
+      rotation: {x: 0.06502279, y: -0.04234933, z: -0.01866753, w: 0.99681}
+      scale: {x: 0.9999994, y: 1.0000005, z: 0.99999946}
+    - name: VBOT_:LeftHandIndex2
+      parentName: VBOT_:LeftHandIndex1
+      position: {x: -0.0022915674, y: 3.7429478, z: -0.0000026019693}
+      rotation: {x: 0.016054055, y: 0.0000071823556, z: 0.0006024338, w: 0.99987096}
+      scale: {x: 0.99999994, y: 0.99999964, z: 1.0000001}
+    - name: VBOT_:LeftHandIndex3
+      parentName: VBOT_:LeftHandIndex2
+      position: {x: 0.0010102539, y: 3.357671, z: 0.0000006369954}
+      rotation: {x: 0.011139432, y: -0.000006664992, z: 0.00015927656, w: 0.99993795}
+      scale: {x: 1, y: 0.99999976, z: 1}
+    - name: VBOT_:LeftHandIndex4
+      parentName: VBOT_:LeftHandIndex3
+      position: {x: 0.0012805795, y: 3.0745363, z: -0.0000063007456}
+      rotation: {x: -0.00000008045498, y: 2.5081814e-10, z: -5.873045e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandIndex4_end
+      parentName: VBOT_:LeftHandIndex4
+      position: {x: -0, y: 3.0745401, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandMiddle1
+      parentName: VBOT_:LeftHand
+      position: {x: 1.1613122, y: 10.023253, z: -0.011463714}
+      rotation: {x: 0.056965243, y: -0.071193166, z: -0.02552558, w: 0.99550736}
+      scale: {x: 1, y: 1.0000005, z: 0.9999997}
+    - name: VBOT_:LeftHandMiddle2
+      parentName: VBOT_:LeftHandMiddle1
+      position: {x: -0.00060562877, y: 4.0604153, z: 0.000001076325}
+      rotation: {x: 0.018480849, y: 0.00000072270615, z: -0.0001275446, w: 0.99982923}
+      scale: {x: 1, y: 0.9999993, z: 1.0000004}
+    - name: VBOT_:LeftHandMiddle3
+      parentName: VBOT_:LeftHandMiddle2
+      position: {x: -0.0018412618, y: 3.8137584, z: 0.0000071693203}
+      rotation: {x: 0.014755774, y: -0.0000017059414, z: 0.0006097503, w: 0.99989104}
+      scale: {x: 0.99999994, y: 1.0000006, z: 0.99999976}
+    - name: VBOT_:LeftHandMiddle4
+      parentName: VBOT_:LeftHandMiddle3
+      position: {x: 0.0024477316, y: 3.6274889, z: -0.000003631692}
+      rotation: {x: 0.00000005096203, y: -1.3542183e-10, z: -0.000000001670813, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: VBOT_:LeftHandMiddle4_end
+      parentName: VBOT_:LeftHandMiddle4
+      position: {x: -0, y: 3.6274853, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandPinky1
+      parentName: VBOT_:LeftHand
+      position: {x: -3.1376708, y: 9.433374, z: 0.09271452}
+      rotation: {x: 0.06958311, y: -0.011627387, z: -0.024545578, w: 0.99720633}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: VBOT_:LeftHandPinky2
+      parentName: VBOT_:LeftHandPinky1
+      position: {x: -0.0039647813, y: 3.2343886, z: -0.000012723378}
+      rotation: {x: 0.016871708, y: 0.0000298079, z: 0.00081772887, w: 0.99985737}
+      scale: {x: 1.0000001, y: 0.9999998, z: 0.9999997}
+    - name: VBOT_:LeftHandPinky3
+      parentName: VBOT_:LeftHandPinky2
+      position: {x: -0.00007703411, y: 2.6718636, z: 0.000018784818}
+      rotation: {x: 0.013829941, y: 0.000056747882, z: 0.0010792151, w: 0.99990386}
+      scale: {x: 0.9999999, y: 1.0000007, z: 1.0000002}
+    - name: VBOT_:LeftHandPinky4
+      parentName: VBOT_:LeftHandPinky3
+      position: {x: 0.004042044, y: 2.2874355, z: 0.0000013776296}
+      rotation: {x: 0.0000000027521878, y: -9.317879e-10, z: -0.000000019734088, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandPinky4_end
+      parentName: VBOT_:LeftHandPinky4
+      position: {x: -0, y: 2.2874296, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandRing1
+      parentName: VBOT_:LeftHand
+      position: {x: -1.3299953, y: 10.050946, z: -0.0104290685}
+      rotation: {x: 0.051044647, y: -0.04761327, z: -0.038181055, w: 0.99682975}
+      scale: {x: 0.9999994, y: 1.0000001, z: 0.99999976}
+    - name: VBOT_:LeftHandRing2
+      parentName: VBOT_:LeftHandRing1
+      position: {x: 0.00056505756, y: 3.2887826, z: -0.00001606815}
+      rotation: {x: 0.024569884, y: -0.0000024624167, z: -0.00006119394, w: 0.99969816}
+      scale: {x: 1, y: 0.9999999, z: 1.0000002}
+    - name: VBOT_:LeftHandRing3
+      parentName: VBOT_:LeftHandRing2
+      position: {x: -0.00015043419, y: 3.256652, z: 0.000012098185}
+      rotation: {x: 0.027687097, y: -0.0000008321037, z: 0.0000083616715, w: 0.9996167}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.9999996}
+    - name: VBOT_:LeftHandRing4
+      parentName: VBOT_:LeftHandRing3
+      position: {x: -0.00041358633, y: 2.9665043, z: 0.000024707984}
+      rotation: {x: 0.00000003154195, y: 0.0000000055908194, z: 0.0000000044438986, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandRing4_end
+      parentName: VBOT_:LeftHandRing4
+      position: {x: -0, y: 2.966476, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:LeftHandThumb1
+      parentName: VBOT_:LeftHand
+      position: {x: 2.207032, y: 2.891597, z: 1.3849902}
+      rotation: {x: 0.119400635, y: 0.0073072882, z: -0.5076523, w: 0.85321707}
+      scale: {x: 1, y: 1.0000002, z: 0.99999964}
+    - name: VBOT_:LeftHandThumb2
+      parentName: VBOT_:LeftHandThumb1
+      position: {x: -0.4968084, y: 3.0740163, z: 0.0000138506275}
+      rotation: {x: -0.00022142378, y: 0.023822121, z: 0.15841459, w: 0.9870853}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: VBOT_:LeftHandThumb3
+      parentName: VBOT_:LeftHandThumb2
+      position: {x: 0.37320492, y: 3.4936538, z: 0.0000001788139}
+      rotation: {x: 0.0023471508, y: 0.0256844, z: -0.012840293, w: 0.9995849}
+      scale: {x: 1, y: 0.9999999, z: 0.99999946}
+    - name: VBOT_:LeftHandThumb4
+      parentName: VBOT_:LeftHandThumb3
+      position: {x: 0.12360835, y: 3.4833553, z: -0.0000096559515}
+      rotation: {x: 0.000000011175872, y: 0.000000011175872, z: 0.000000056810677, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: VBOT_:LeftHandThumb4_end
+      parentName: VBOT_:LeftHandThumb4
+      position: {x: -0, y: 3.4855406, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:Neck
+      parentName: VBOT_:Spine2
+      position: {x: -1.8170866e-11, y: 14.5558195, z: -0.0000001788139}
+      rotation: {x: -0.044160053, y: -0.11479181, z: 0.042966858, w: 0.991477}
+      scale: {x: 1, y: 0.9999996, z: 0.99999964}
+    - name: VBOT_:Head
+      parentName: VBOT_:Neck
+      position: {x: -7.3683655e-12, y: 5.69728, z: 2.4140098}
+      rotation: {x: -0.050030835, y: -0.20310876, z: 0.06270333, w: 0.97586477}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:HeadTop_End
+      parentName: VBOT_:Head
+      position: {x: -1.5957928e-11, y: 20.432783, z: 8.657652}
+      rotation: {x: 1.6653348e-16, y: 4.387005e-19, z: 9.1814114e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:HeadTop_End_end
+      parentName: VBOT_:HeadTop_End
+      position: {x: -0, y: 22.19128, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightShoulder
+      parentName: VBOT_:Spine2
+      position: {x: 6.233019, y: 12.722447, z: 0.0031886697}
+      rotation: {x: 0.5813767, y: 0.3654717, z: -0.4739023, w: 0.5512243}
+      scale: {x: 0.9999998, y: 1.0000004, z: 0.9999994}
+    - name: VBOT_:RightArm
+      parentName: VBOT_:RightShoulder
+      position: {x: -0.00000042188907, y: 12.88506, z: -0.000003330409}
+      rotation: {x: -0.041659158, y: 0.07102495, z: -0.17259958, w: 0.98154444}
+      scale: {x: 0.99999994, y: 0.99999934, z: 0.9999998}
+    - name: VBOT_:RightForeArm
+      parentName: VBOT_:RightArm
+      position: {x: 0.0000005218607, y: 28.777094, z: -0.00000024959442}
+      rotation: {x: -0.008927458, y: -0.40455604, z: 0.02957568, w: 0.9139913}
+      scale: {x: 0.9999995, y: 1.0000006, z: 1.0000001}
+    - name: hitBox 3
+      parentName: VBOT_:RightForeArm
+      position: {x: 0.0000627726, y: 20.918804, z: 0.000016188054}
+      rotation: {x: -0.70703465, y: 0.010088155, z: 0.010087076, w: 0.707035}
+      scale: {x: 15.00001, y: 15.00001, z: 29.883974}
+    - name: VBOT_:RightHand
+      parentName: VBOT_:RightForeArm
+      position: {x: 0.0000002084125, y: 29.88406, z: 0.000014346091}
+      rotation: {x: 0.09121975, y: -0.24475029, z: 0.09863261, w: 0.9602332}
+      scale: {x: 1.0000007, y: 1, z: 1}
+    - name: RightHandlers
+      parentName: VBOT_:RightHand
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: defaultHandler 1
+      parentName: RightHandlers
+      position: {x: 1.9999526, y: 7.8001113, z: 3.2999983}
+      rotation: {x: -0.46385905, y: -0.53896326, z: 0.4475392, w: 0.5422749}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AI_vKanata_Long
+      parentName: defaultHandler 1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000029802319, y: -0.000000059604638, z: -6.123276e-17, w: 1}
+      scale: {x: 100, y: 100.00008, z: 100.000015}
+    - name: Components
+      parentName: AI_vKanata_Long
+      position: {x: -0, y: 0.0148, z: -0.0398}
+      rotation: {x: 0.50000083, y: -0.49999923, z: -0.49999988, w: 0.50000006}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: hitBox 4
+      parentName: Components
+      position: {x: -0, y: 0.477, z: 0.049}
+      rotation: {x: 0.047169413, y: 0.000000011664812, z: 0.000000021999634, w: 0.9988869}
+      scale: {x: 1, y: 0.65450114, z: 1}
+    - name: vKanata_Long 2
+      parentName: Components
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKPoint
+      parentName: AI_vKanata_Long
+      position: {x: -0.0169, y: 0.0139, z: -0.10849999}
+      rotation: {x: -0.000000089388905, y: 0.034793336, z: 0.000000028765395, w: 0.99939454}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shieldHandler 1
+      parentName: RightHandlers
+      position: {x: 1.9999526, y: 7.8001113, z: 3.2999983}
+      rotation: {x: 0.62532765, y: 0.5953436, z: 0.37684816, w: -0.33543545}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightHandIndex1
+      parentName: VBOT_:RightHand
+      position: {x: -3.2609918, y: 10.302796, z: 0.20424765}
+      rotation: {x: 0.063117996, y: 0.029963799, z: 0.05351784, w: 0.9961196}
+      scale: {x: 1, y: 0.9999997, z: 0.99999976}
+    - name: VBOT_:RightHandIndex2
+      parentName: VBOT_:RightHandIndex1
+      position: {x: -0.002191752, y: 3.5275145, z: -0.000007362105}
+      rotation: {x: 0.013523468, y: 0.000052884196, z: -0.00042186948, w: 0.99990845}
+      scale: {x: 0.99999994, y: 0.99999964, z: 1.0000005}
+    - name: VBOT_:RightHandIndex3
+      parentName: VBOT_:RightHandIndex2
+      position: {x: -0.0061550727, y: 3.336971, z: 0.000005274079}
+      rotation: {x: 0.017071692, y: 0.000035148478, z: 0.0025944547, w: 0.9998509}
+      scale: {x: 0.99999994, y: 1.0000004, z: 1}
+    - name: VBOT_:RightHandIndex4
+      parentName: VBOT_:RightHandIndex3
+      position: {x: 0.008346348, y: 2.918003, z: -0.0000014519317}
+      rotation: {x: 0.00000000842556, y: 0.000000092695934, z: 0.00000008829295, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: VBOT_:RightHandIndex4_end
+      parentName: VBOT_:RightHandIndex4
+      position: {x: -0, y: 2.9180162, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightHandMiddle1
+      parentName: VBOT_:RightHand
+      position: {x: -1.0459455, y: 9.890944, z: -0.12528582}
+      rotation: {x: 0.06039094, y: 0.016679047, z: 0.057320137, w: 0.996388}
+      scale: {x: 0.99999934, y: 0.9999995, z: 0.9999997}
+    - name: VBOT_:RightHandMiddle2
+      parentName: VBOT_:RightHandMiddle1
+      position: {x: 0.0060392907, y: 4.100815, z: 0.00001388043}
+      rotation: {x: 0.013777333, y: -0.000025570384, z: 0.000059094375, w: 0.9999051}
+      scale: {x: 1, y: 0.9999995, z: 0.9999998}
+    - name: VBOT_:RightHandMiddle3
+      parentName: VBOT_:RightHandMiddle2
+      position: {x: 0.0041791643, y: 3.861288, z: -0.000013139097}
+      rotation: {x: 0.02510049, y: 0.00010844108, z: -0.0014712006, w: 0.99968386}
+      scale: {x: 1, y: 1.0000007, z: 0.99999994}
+    - name: VBOT_:RightHandMiddle4
+      parentName: VBOT_:RightHandMiddle3
+      position: {x: -0.010218022, y: 3.6506317, z: -0.000012870876}
+      rotation: {x: -0.00000003355308, y: -7.5570467e-10, z: -0.000000006678988, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightHandMiddle4_end
+      parentName: VBOT_:RightHandMiddle4
+      position: {x: -0, y: 3.650653, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightHandPinky1
+      parentName: VBOT_:RightHand
+      position: {x: 3.229885, y: 8.635466, z: 0.26456282}
+      rotation: {x: 0.061032355, y: -0.017952394, z: 0.05110336, w: 0.9966651}
+      scale: {x: 0.999999, y: 0.99999946, z: 1.0000002}
+    - name: VBOT_:RightHandPinky2
+      parentName: VBOT_:RightHandPinky1
+      position: {x: 0.0000063971374, y: 3.5136409, z: 0.0000012964008}
+      rotation: {x: 0.023721132, y: 0.0000037495029, z: 0.00074007816, w: 0.99971837}
+      scale: {x: 1, y: 0.9999999, z: 0.999999}
+    - name: VBOT_:RightHandPinky3
+      parentName: VBOT_:RightHandPinky2
+      position: {x: 0.00017850238, y: 2.8926263, z: -0.0000014435498}
+      rotation: {x: 0.032552447, y: 0.0000017585425, z: 0.0009060508, w: 0.9994696}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
+    - name: VBOT_:RightHandPinky4
+      parentName: VBOT_:RightHandPinky3
+      position: {x: -0.00018684843, y: 2.5621479, z: 0.0000047087665}
+      rotation: {x: 0.00000000583043, y: -0.0000000037147578, z: 0.000000024821702, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: VBOT_:RightHandPinky4_end
+      parentName: VBOT_:RightHandPinky4
+      position: {x: -0, y: 2.562149, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightHandRing1
+      parentName: VBOT_:RightHand
+      position: {x: 1.0770532, y: 9.615877, z: -0.04499008}
+      rotation: {x: 0.05673572, y: -0.027769765, z: 0.0582048, w: 0.9963043}
+      scale: {x: 0.9999992, y: 0.99999964, z: 1}
+    - name: VBOT_:RightHandRing2
+      parentName: VBOT_:RightHandRing1
+      position: {x: 0.00086446095, y: 3.5615304, z: -0.000015171245}
+      rotation: {x: 0.023198992, y: -0.0000016670668, z: 0.00021868553, w: 0.9997309}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: VBOT_:RightHandRing3
+      parentName: VBOT_:RightHandRing2
+      position: {x: -0.0008447821, y: 3.4413192, z: 0.000004537403}
+      rotation: {x: 0.01847132, y: 0.00000042115767, z: 0.0004859821, w: 0.9998293}
+      scale: {x: 0.99999994, y: 1, z: 0.9999997}
+    - name: VBOT_:RightHandRing4
+      parentName: VBOT_:RightHandRing3
+      position: {x: -0.000018931923, y: 3.1309967, z: -0.000009484588}
+      rotation: {x: -0.000000040627246, y: -0.000000007421774, z: 0.0000000014611032, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: VBOT_:RightHandRing4_end
+      parentName: VBOT_:RightHandRing4
+      position: {x: -0, y: 3.1309977, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightHandThumb1
+      parentName: VBOT_:RightHand
+      position: {x: -2.1773484, y: 2.860778, z: 1.5000123}
+      rotation: {x: 0.29512763, y: 0.09639216, z: 0.3581566, w: 0.88052946}
+      scale: {x: 1.0000001, y: 0.9999995, z: 0.9999996}
+    - name: VBOT_:RightHandThumb2
+      parentName: VBOT_:RightHandThumb1
+      position: {x: 0.4479191, y: 3.0840445, z: 0.0000027716155}
+      rotation: {x: -0.0012063975, y: -0.022453964, z: -0.14843336, w: 0.9886668}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:RightHandThumb3
+      parentName: VBOT_:RightHandThumb2
+      position: {x: -0.26757833, y: 3.5406926, z: 0.000021934506}
+      rotation: {x: 0.002593802, y: -0.026835764, z: -0.018269096, w: 0.9994696}
+      scale: {x: 1, y: 0.9999996, z: 1.0000001}
+    - name: VBOT_:RightHandThumb4
+      parentName: VBOT_:RightHandThumb3
+      position: {x: -0.18034026, y: 3.4578032, z: -0.000009894369}
+      rotation: {x: -0.000000001862645, y: -0.0000000037252899, z: 0.000000028870998, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: VBOT_:RightHandThumb4_end
+      parentName: VBOT_:RightHandThumb4
+      position: {x: -0, y: 3.4625075, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: lookTarget
+      parentName: Melee_Strafe2HandMoveset(Clone)
+      position: {x: 0.000012004166, y: 1.3961374, z: 0.0004143991}
+      rotation: {x: 3.3881318e-21, y: 0, z: 8.357989e-14, w: 1}
+      scale: {x: 0.2354946, y: 0.5704581, z: 0.23549455}
+    - name: Mesh_LOD
+      parentName: Melee_Strafe2HandMoveset(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: VBOT_:VBOT_LOD0
+      parentName: Mesh_LOD
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00000008122751, y: -0.000000001833541, z: -1.3434297e-16, w: 1}
+      scale: {x: 0.01, y: 0.009999999, z: 0.01}
+    - name: VBOT_:VBOT_LOD1
+      parentName: Mesh_LOD
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00000008122751, y: -0.000000001833541, z: -1.3434297e-16, w: 1}
+      scale: {x: 0.01, y: 0.009999999, z: 0.01}
+    - name: VBOT_:VBOT_LOD2
+      parentName: Mesh_LOD
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00000008122751, y: -0.000000001833541, z: -1.3434297e-16, w: 1}
+      scale: {x: 0.01, y: 0.009999999, z: 0.01}
+    - name: VBOT_:VBOT_LOD3
+      parentName: Mesh_LOD
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00000008122751, y: -0.000000001833541, z: -1.3434297e-16, w: 1}
+      scale: {x: 0.01, y: 0.009999999, z: 0.01}
+    - name: Particles
+      parentName: Melee_Strafe2HandMoveset(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: healParticle
+      parentName: Particles
+      position: {x: -0, y: 1.0060005, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.59031177, y: 0.59031236, z: 0.59031254}
+    - name: increaseHealthParticle
+      parentName: Particles
+      position: {x: -0, y: 1.0060005, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.59031177, y: 0.59031236, z: 0.59031254}
+    - name: increaseStaminaParticle
+      parentName: Particles
+      position: {x: -0, y: 1.0060005, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.59031177, y: 0.59031236, z: 0.59031254}
+    - name: ragdollAudioSource
+      parentName: Melee_Strafe2HandMoveset(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: collisionAudio
+      parentName: ragdollAudioSource
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
