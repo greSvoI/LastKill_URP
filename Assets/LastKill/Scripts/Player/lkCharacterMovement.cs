@@ -54,6 +54,7 @@ public class lkCharacterMovement : MonoBehaviour
 	}
 	public void UpdateMovement()
 	{
+		Gravity();
 		Falling();
 		if(playerInput.IsJump)
 		{
@@ -65,6 +66,14 @@ public class lkCharacterMovement : MonoBehaviour
 		}
 		Movement();
 		MovementRotate();
+	}
+	public void Gravity()
+    {
+		
+		if (_moveDirection.y < 2.0f)
+		{
+			_moveDirection.y = -5f;
+		}
 	}
 	public void Movement()
 	{
