@@ -54,7 +54,7 @@ namespace LastKill
             _startInput = _input.Move;
             _targetRotation = _cameraController.MainCamera.eulerAngles.y;
 
-            if (_input.IsJump && _move.IsGrounded())
+            if (_input.Jump && _move.IsGrounded())
                 PerformJump();
             else
             {
@@ -93,7 +93,7 @@ namespace LastKill
 
         public override bool ReadyToStart()
         {
-            return !_move.IsGrounded() || _input.IsJump;
+            return !_move.IsGrounded() || _input.Jump;
         }
 
         //public override void UpdateState()

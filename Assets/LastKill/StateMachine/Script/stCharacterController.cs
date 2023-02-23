@@ -56,7 +56,7 @@ public class stCharacterController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		//if(playerInput.IsSprint)
+		//if(playerInput.Sprint)
 		//{
 		
 		//	animator.HasState(0, Animator.StringToHash("Crouch"));

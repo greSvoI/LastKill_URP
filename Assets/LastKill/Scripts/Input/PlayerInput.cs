@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,17 +19,20 @@ namespace LastKill
 		[SerializeField] private bool _strafe;
 		[SerializeField] private bool _crawl;
 		[SerializeField] private float _moveAmount;
+		[SerializeField] private int _currentWeapon;
+		[SerializeField] private int _lastWeapon;
 
 
 		public Vector2 Move => _move;
 		public Vector2 Look => _look;
-		public bool IsSprint => _sprint;
-		public bool IsJump => _jump;
-		public bool IsCrouch => _crouch;
-		public bool IsRoll => _roll;
-		public bool IsFire => _fire;
-		public bool IsCrawl => _crawl;
+		public bool Sprint => _sprint;
+		public bool Jump => _jump;
+		public bool Crouch => _crouch;
+		public bool Roll => _roll;
+		public bool Fire => _fire;
+		public bool Crawl => _crawl;
 		public float MoveAmount => _moveAmount;
+
 
 
 		private void Awake()
@@ -58,11 +62,24 @@ namespace LastKill
 
 			inputActions.Player.Crouch.performed += ctx => { _crouch = !_crouch; };
 
+			inputActions.Player.Weapon.performed += SetWeapon;
+
 		}
 
-		private void OnMove(InputAction.CallbackContext obj)
+        private void SetWeapon(InputAction.CallbackContext obj)
+        {
+			_lastWeapon = _currentWeapon;
+			int.TryParse(obj.control.displayName,out _currentWeapon);
+
+            if (_lastWeapon == _currentWeapon)
+            {
+                _currentWeapon = 0;
+            }
+        }
+
+        private void OnMove(InputAction.CallbackContext obj)
 		{
-			_move = obj.ReadValue<Vector2>().normalized;
+			_move = obj.ReadValue<Vector2>();
 			_moveAmount = Mathf.Clamp01(Mathf.Abs(_move.x) + Mathf.Abs(_move.y));
 		}
 

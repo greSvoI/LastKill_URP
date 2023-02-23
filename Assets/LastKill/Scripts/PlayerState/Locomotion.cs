@@ -33,7 +33,7 @@ namespace LastKill
         {
             float targetSpeed = 0f;
 
-            targetSpeed = _input.IsSprint ? _sprintSpeed : _walkSpeed;
+            targetSpeed = _input.Sprint ? _sprintSpeed : _walkSpeed;
 
             targetSpeed = _input.Move == Vector2.zero ? 0f : targetSpeed;
 

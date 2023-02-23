@@ -33,14 +33,14 @@ namespace LastKill
 
         public override bool ReadyToStart()
         {
-            return _move.IsGrounded() && _input.IsCrouch;
+            return _move.IsGrounded() && _input.Crouch;
         }
 
         public override void UpdateState()
         {
             _move.Move(_input.Move, speed);
 
-            if (!_input.IsCrouch && !ForceCrouchByHeight())
+            if (!_input.Crouch && !ForceCrouchByHeight())
                 StopState();
         }
         private bool ForceCrouchByHeight()

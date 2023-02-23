@@ -13,7 +13,7 @@ namespace LastKill
 
         public override bool ReadyToStart()
         {
-            return _input.IsRoll;
+            return _input.Roll;
         }
 
         public override void UpdateState()

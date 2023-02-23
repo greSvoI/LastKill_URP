@@ -36,7 +36,7 @@ namespace LastKill
         public override bool ReadyToStart()
         {
             if (!_move.IsGrounded()) return false;
-            if (_input.IsCrawl) return true;
+            if (_input.Crawl) return true;
             return false;
         }
 
