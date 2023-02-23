@@ -4,28 +4,30 @@ using UnityEngine;
 
 namespace LastKill
 {
-    public class Locomotion : AbstractState
+    public class Locomotion : AbstractAbilityState
     {
         [SerializeField] private float _walkSpeed = 2f;
         [SerializeField] private float _sprintSpeed = 5f;
-        [SerializeField] private string _animatorBlendState = "Locomotion";
+        [SerializeField] private string _animatorBlendState = "Locomotion.Free Movement";
 
-        private IMove _move = null;
+        //private IMove _move = null;
         private int _animatorIdSpeed;
         private void Awake()
         {
-            _move = GetComponent<IMove>();
             _animatorIdSpeed = Animator.StringToHash("Speed");
         }
 
         public override void OnStartState()
         {
+            nameState.text = "Locomotion";
             SetAnimationState(_animatorBlendState, 0.25f);
 
             if(_input.Move.magnitude < 0.1f)
             {
+                // reset movement parameters
                 _animator.SetFloat(_animatorIdSpeed, 0f, 0f, Time.deltaTime);
             }
+            
         }
         public override void UpdateState()
         {
@@ -37,14 +39,10 @@ namespace LastKill
 
             _move.Move(_input.Move, targetSpeed);
         }
-        public override void OnStopState()
-        {
-            
-        }
 
         public override bool ReadyToStart()
         {
-            return _move.IsOnGround();
+            return _move.IsGrounded();
         }
 
       

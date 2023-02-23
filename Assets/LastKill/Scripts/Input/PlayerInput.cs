@@ -16,6 +16,7 @@ namespace LastKill
 		[SerializeField] private bool _fire;
 		[SerializeField] private bool _aim;
 		[SerializeField] private bool _strafe;
+		[SerializeField] private bool _crawl;
 		[SerializeField] private float _moveAmount;
 
 
@@ -26,6 +27,7 @@ namespace LastKill
 		public bool IsCrouch => _crouch;
 		public bool IsRoll => _roll;
 		public bool IsFire => _fire;
+		public bool IsCrawl => _crawl;
 		public float MoveAmount => _moveAmount;
 
 
