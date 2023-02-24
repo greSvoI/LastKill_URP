@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 5e2fac33c7a22be4db4c1b2d8350a988, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1f3603fb85aabb146a7fa665e3d479b7, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 477cc4148fad3449482a3bc3178594e2, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -727,7 +727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.83266, y: 41.178, z: -16.454855}
+  m_LocalPosition: {x: 130.83266, y: 41.193, z: -16.454855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1074,7 +1074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5440487211950168638, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.284
+      value: 39.299
       objectReference: {fileID: 0}
     - target: {fileID: 5440487211950168638, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1142,7 +1142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &5440487211788391448
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1180,9 +1180,11 @@ MonoBehaviour:
   _strafe: 0
   _crawl: 0
   _moveAmount: 0
+  _currentWeapon: 0
+  _lastWeapon: 0
 --- !u!114 &5440487211788391452
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1194,9 +1196,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statePriority: 3
   nameState: {fileID: 394564736}
+  _rollSpeed: 5
+  _capsuleHeightOnRoll: 1
+  _freeRollAnimation: Roll.Free Roll
+  _aimedRollAnimation: Roll.Aimed Roll
 --- !u!114 &5440487211788391453
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1212,7 +1218,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   capsuleHeightOnCrouch: 1
-  speed: 3
+  speed: 2
 --- !u!114 &5440487211788391454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,7 +1267,7 @@ MonoBehaviour:
   _velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &5440487211788391458
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1301,6 +1307,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voiceSource: {fileID: 0}
   effectsSource: {fileID: 1532605238}
+--- !u!114 &5440487211788391462
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440487211788391446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e2934c19633a54993b85d7302f65c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statePriority: 3
+  nameState: {fileID: 394564736}
+  _crawlSpeed: 1
+  _capsuleHeight: 0.5
+  _obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  _maxHeightToStartCrawl: 0.75
+  _startToCrawlAnimation: Crawl.Stand to Crawl
+  _stopToSdantAnimation: Crawl.Crawl to Stand
 --- !u!1001 &8730038422980332794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1330,7 +1358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321221347923512613, guid: 6a2ca42eaa4a8c4428b287282c1e0984, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.178
+      value: 41.193
       objectReference: {fileID: 0}
     - target: {fileID: 7321221347923512613, guid: 6a2ca42eaa4a8c4428b287282c1e0984, type: 3}
       propertyPath: m_LocalPosition.z

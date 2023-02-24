@@ -107,6 +107,15 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crawl"",
+                    ""type"": ""Button"",
+                    ""id"": ""06e0e3ea-4c61-4876-ae2c-34dd69edf05f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -351,6 +360,17 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""action"": ""Weapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""248cc52e-d799-4541-9226-76a7f33b6000"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crawl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -421,6 +441,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Weapon = m_Player.FindAction("Weapon", throwIfNotFound: true);
+        m_Player_Crawl = m_Player.FindAction("Crawl", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -489,6 +510,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Weapon;
+    private readonly InputAction m_Player_Crawl;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -502,6 +524,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Weapon => m_Wrapper.m_Player_Weapon;
+        public InputAction @Crawl => m_Wrapper.m_Player_Crawl;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -538,6 +561,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @Weapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeapon;
                 @Weapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeapon;
                 @Weapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeapon;
+                @Crawl.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrawl;
+                @Crawl.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrawl;
+                @Crawl.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrawl;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -569,6 +595,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @Weapon.started += instance.OnWeapon;
                 @Weapon.performed += instance.OnWeapon;
                 @Weapon.canceled += instance.OnWeapon;
+                @Crawl.started += instance.OnCrawl;
+                @Crawl.performed += instance.OnCrawl;
+                @Crawl.canceled += instance.OnCrawl;
             }
         }
     }
@@ -629,5 +658,6 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnWeapon(InputAction.CallbackContext context);
+        void OnCrawl(InputAction.CallbackContext context);
     }
 }

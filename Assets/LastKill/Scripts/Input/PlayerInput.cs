@@ -23,6 +23,9 @@ namespace LastKill
 		[SerializeField] private int _lastWeapon;
 
 
+		//hold button or single click
+		[SerializeField] public bool HoldButton;
+
 		public Vector2 Move => _move;
 		public Vector2 Look => _look;
 		public bool Sprint => _sprint;
@@ -56,15 +59,37 @@ namespace LastKill
 			inputActions.Player.Roll.performed += ctx => _roll = ctx.ReadValueAsButton();
 			inputActions.Player.Roll.canceled += ctx => _roll = ctx.ReadValueAsButton();
 
-			inputActions.Player.Aim.performed += ctx => { _aim = !_aim; };
+			//inputActions.Player.Aim.performed += ctx =>
+			//{
+			//    _aim = ctx.ReadValueAsButton();
+			//    _aim = !_aim;
+			//};
+			inputActions.Player.Aim.performed += OnAim;
+			inputActions.Player.Aim.canceled += OnAim;
 
-			inputActions.Player.Sprint.performed += ctx => { _sprint = !_sprint; };
+			inputActions.Player.Sprint.performed += ctx => {
 
-			inputActions.Player.Crouch.performed += ctx => { _crouch = !_crouch; };
+				_sprint = ctx.ReadValueAsButton();
+				//_sprint = !_sprint;
+			};
+
+			inputActions.Player.Crouch.performed += ctx => {
+				_crouch = ctx.ReadValueAsButton();
+				//_crouch = !_crouch;
+			};
+			inputActions.Player.Crawl.performed += ctx => {
+				_crawl = ctx.ReadValueAsButton();
+				//_crawl = !_crawl;
+			};
 
 			inputActions.Player.Weapon.performed += SetWeapon;
 
 		}
+
+        private void OnAim(InputAction.CallbackContext obj)
+        {
+			_aim = obj.ReadValueAsButton();
+        }
 
         private void SetWeapon(InputAction.CallbackContext obj)
         {
