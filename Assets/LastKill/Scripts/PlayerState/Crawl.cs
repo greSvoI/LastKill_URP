@@ -80,7 +80,7 @@ namespace LastKill
             }
             _move.Move(_input.Move, _crawlSpeed);
 
-            if(_input.Crawl && !CanGetUp())
+            if(!_input.Crawl && !CanGetUp())
             {
                 SetAnimationState(_stopToSdantAnimation);
                 _stoppingCrawl = true;

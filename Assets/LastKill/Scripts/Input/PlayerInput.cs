@@ -22,6 +22,8 @@ namespace LastKill
 		[SerializeField] private int _currentWeapon;
 		[SerializeField] private int _lastWeapon;
 
+		public Action Died;
+
 
 		//hold button or single click
 		[SerializeField] public bool HoldButton;
@@ -34,10 +36,16 @@ namespace LastKill
 		public bool Roll => _roll;
 		public bool Fire => _fire;
 		public bool Crawl => _crawl;
+		public bool Aim => _aim;
 		public float MoveAmount => _moveAmount;
+		public int CurrentWeapon => _currentWeapon;
 
-
-
+		//Priority 
+		//Remove the ability to jump while crawling
+		//Locomotion 0
+		//Strafe 1
+		//Crouch 2
+		//Crawl 3
 		private void Awake()
 		{
 			if (inputActions == null)
@@ -67,29 +75,82 @@ namespace LastKill
 			inputActions.Player.Aim.performed += OnAim;
 			inputActions.Player.Aim.canceled += OnAim;
 
-			inputActions.Player.Sprint.performed += ctx => {
+			inputActions.Player.Crawl.performed += OnCrawl;
+			inputActions.Player.Crawl.canceled += OnCrawl;
 
-				_sprint = ctx.ReadValueAsButton();
-				//_sprint = !_sprint;
-			};
+			inputActions.Player.Crouch.performed += OnCrouch;
+			inputActions.Player.Crouch.canceled += OnCrouch;
 
-			inputActions.Player.Crouch.performed += ctx => {
-				_crouch = ctx.ReadValueAsButton();
-				//_crouch = !_crouch;
-			};
-			inputActions.Player.Crawl.performed += ctx => {
-				_crawl = ctx.ReadValueAsButton();
-				//_crawl = !_crawl;
-			};
+			inputActions.Player.Sprint.performed += OnSprint;
+			inputActions.Player.Sprint.canceled += OnSprint;
+
+			//inputActions.Player.Sprint.performed += ctx => {
+
+			//	_sprint = ctx.ReadValueAsButton();
+			//	//_sprint = !_sprint;
+			//};
+
+			//inputActions.Player.Crouch.performed += ctx => {
+			//	_crouch = ctx.ReadValueAsButton();
+			//	//_crouch = !_crouch;
+			//};
+			//inputActions.Player.Crawl.performed += ctx => {
+			//	_crawl = ctx.ReadValueAsButton();
+			//	//_crawl = !_crawl;
+			//};
 
 			inputActions.Player.Weapon.performed += SetWeapon;
 
 		}
 
+        private void OnSprint(InputAction.CallbackContext obj)
+        {
+			if (HoldButton)
+			{
+				_sprint = obj.ReadValueAsButton();
+			}
+			else
+			{
+				_sprint = !_sprint;
+			}
+		}
+
+        private void OnCrouch(InputAction.CallbackContext obj)
+        {
+            if(HoldButton)
+            {
+				_crouch = obj.ReadValueAsButton();
+            }
+			else
+            {
+				_crouch = !_crouch;
+            }
+        }
+
+        private void OnCrawl(InputAction.CallbackContext obj)
+        {
+			if (HoldButton)
+			{
+				_crawl = obj.ReadValueAsButton();
+			}
+			else
+			{
+				_crawl = !_crawl;
+				_crouch = false;
+			}
+		}
+
         private void OnAim(InputAction.CallbackContext obj)
         {
-			_aim = obj.ReadValueAsButton();
-        }
+			if (HoldButton)
+			{
+				_aim = obj.ReadValueAsButton();
+			}
+			else
+			{
+				_aim = !_aim;
+			}
+		}
 
         private void SetWeapon(InputAction.CallbackContext obj)
         {

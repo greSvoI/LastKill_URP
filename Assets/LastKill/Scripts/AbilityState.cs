@@ -8,6 +8,9 @@ namespace LastKill
     public class AbilityState : MonoBehaviour
     {
         private AbstractAbilityState[] PlayerAbilities = null;
+        private Animator _animator;
+        private PlayerInput _input;
+        private bool _died = false;
 
         public event Action OnUpdateState = null;
         public event Action<AbstractAbilityState> OnStateStop = null;
@@ -18,12 +21,31 @@ namespace LastKill
 
         private void Awake()
         {
+            
             PlayerAbilities = GetComponents<AbstractAbilityState>();
             foreach (AbstractAbilityState state in PlayerAbilities) { }
+            _animator = GetComponent<Animator>();
+            _input = GetComponent<PlayerInput>();
+            _input.Died += OnDied;
+
 
         }
+
+        private void OnDied()
+        {
+            _died = true;
+            StartCoroutine(OnAlive());
+        }
+        IEnumerator OnAlive()
+        {
+            yield return new WaitForSecondsRealtime(5);
+            _animator.CrossFadeInFixedTime("Locomotion.Alive", 0.1f, 0);
+            _died = false;
+        }
+
         private void Update()
         {
+            if (_died) return;
             CheckAbilitiesStates();
             if (CurrentState != null)
                 CurrentState.UpdateState();

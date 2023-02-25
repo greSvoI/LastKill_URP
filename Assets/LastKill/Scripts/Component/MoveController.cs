@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LastKill
 {
@@ -32,6 +33,7 @@ namespace LastKill
 		[SerializeField] private float Gravity = -15.0f;
 
 		// player
+		private bool _died = false;
 		private float _speed;
 		private float _animationBlend;
 		private float _targetRotation = 0.0f;
@@ -53,6 +55,8 @@ namespace LastKill
 		private CharacterController _controller;
 		private CameraController _cameraController;
 		private GameObject _mainCamera;
+		private PlayerInput _input;
+		private AbstractAbilityState _abstractAbility;
 
 		private bool _hasAnimator;
 
@@ -65,19 +69,40 @@ namespace LastKill
 			_mainCamera = Camera.main.gameObject;
 			_controller = GetComponent<CharacterController>();
 			_cameraController = GetComponent<CameraController>();
+			_abstractAbility = GetComponent<AbstractAbilityState>();
+			_input = GetComponent<PlayerInput>();
+			_input.Died += OnDied;
+
 
 			_initialCapsuleHeight = _controller.height;
 			_initialCapsuleRadius = _controller.radius;
+		}
+
+        private void OnDied()
+        {
+			StopMovement();
+			_died = true;
+			StartCoroutine(OnAlive());
+        }
+		IEnumerator OnAlive()
+        {
+			Debug.Log("Start Couru");
+			yield return new WaitForSecondsRealtime(3);
+			_died = false;
+			Debug.Log("3s");
+
 		}
 
 		private void Start()
 		{
 			_hasAnimator = TryGetComponent(out _animator);
 			AssignAnimationIDs();
+		
 		}
 
 		private void Update()
 		{
+			if (_died) return;
 			GravityControl();
 			GroundedCheck();
 
@@ -392,5 +417,6 @@ namespace LastKill
 			return relative;
 		}
 
+		
     }
 }

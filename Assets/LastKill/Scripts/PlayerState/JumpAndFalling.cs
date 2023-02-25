@@ -13,16 +13,21 @@ namespace LastKill
         [SerializeField] private string animFallState = "Air.Falling";
         [SerializeField] private string animHardLandState = "Air.HardLand";
         [SerializeField] private string animSoftLandState = "Air.SoftLand";
+        [SerializeField] private string animDeathState = "Air.Death";
+        [SerializeField] private string _playAnimState;
         [Header("Jump parameters")]
         [SerializeField] private float jumpHeight = 1.2f;
         [SerializeField] private float speedOnAir = 6f;
         [SerializeField] private float airControl = 0.5f;
         [Header("Landing")]
-        [SerializeField] private float heightForHardLand = 3f;
+        [SerializeField] private float heightForSoftLand = 2f;
+        [SerializeField] private float heightForHardLand = 4f;
         [SerializeField] private float heightForKillOnLand = 7f;
         [Header("Sound FX")]
         [SerializeField] private AudioClip jumpEffect;
-        [SerializeField] private AudioClip hardLandClip;
+        [SerializeField] private AudioClip _hardLandClip;
+        [SerializeField] private AudioClip _softLandClip;
+        [SerializeField] private AudioClip _deathClip;
         [Header("Event")]
         [SerializeField] private UnityEvent OnLanded = null;
 
@@ -39,7 +44,7 @@ namespace LastKill
 
         // vars to control landing
         private float _highestPosition = 0;
-        private bool _hardLanding = false;
+        private bool _landing = false;
 
         private void Awake()
         {
@@ -71,7 +76,7 @@ namespace LastKill
             }
 
             _highestPosition = transform.position.y;
-            _hardLanding = false;
+            _landing = false;
 
         }
 
@@ -98,7 +103,7 @@ namespace LastKill
 
         //public override void UpdateState()
         //{
-        //    if(_hardLanding)
+        //    if(_landing)
         //    {
         //        if (HasFinishedAnimation(animHardLandState))
         //            StopState();
@@ -108,7 +113,7 @@ namespace LastKill
         //    if(_move.IsGrounded())
         //    {
         //        SetAnimationState(animHardLandState, 0.02f);
-        //        _hardLanding = true;
+        //        _landing = true;
 
         //    }
         //    _move.Move(_startInput, _startSpeed, false);
@@ -116,13 +121,13 @@ namespace LastKill
         //}
         public override void UpdateState()
         {
-            if (_hardLanding)
+            if (_landing)
             {
                 // apply root motion
                 _move.ApplyRootMotion(Vector3.one, false);
 
                 // wait animation finish
-                if (HasFinishedAnimation(animHardLandState))
+                if (HasFinishedAnimation(_playAnimState))
                     StopState();
 
                 return;
@@ -130,43 +135,41 @@ namespace LastKill
 
             if (_move.IsGrounded())
             {
-                if (_highestPosition - transform.position.y >= heightForHardLand)
+                if (_highestPosition - transform.position.y >= heightForKillOnLand)
                 {
-                    _hardLanding = true;
-                    SetAnimationState(animHardLandState, 0.02f);
-
-                    // call event
-                    OnLanded.Invoke();
-
-                    // call damage clip
-                    if (_audioController)
-                        _audioController.PlayVoice(hardLandClip);
-
-                    // cause damage
-                    //if (_damage != null)
-                    //{
-                    //    // calculate damage
-                    //    float currentHeight = _highestPosition - transform.position.y - heightForHardLand;
-                    //    float ratio = currentHeight / (heightForKillOnLand - heightForHardLand);
-
-                    //    _damage.Damage((int)(200 * ratio));
-                    //}
-
+                    LandingSoft(true, animDeathState, _deathClip);
+                    _input.Died?.Invoke(); 
                     return;
                 }
-
-
+                else if (_highestPosition - transform.position.y >= heightForHardLand)
+                {
+                    LandingSoft(true, animHardLandState, _hardLandClip);
+                    return;
+                }
+                else if(_highestPosition - transform.position.y >= heightForSoftLand)
+                {
+                    LandingSoft(true, animSoftLandState, _softLandClip);
+                    return;
+                }
                 StopState();
+                
             }
 
             if (transform.position.y > _highestPosition)
                 _highestPosition = transform.position.y;
 
-            _startInput = Vector2.SmoothDamp(_startInput, _input.Move, ref _inputVel, airControl);
-            _move.Move(_startInput, _startSpeed, false);
-
-            RotateCharacter();
         }
+
+        private void LandingSoft(bool landing, string animState, AudioClip clipLanding)
+        {
+            _landing = landing;
+            _playAnimState = animState;
+            SetAnimationState(_playAnimState, 0.02f);
+            // call event
+            OnLanded.Invoke();
+            _audioController.PlayVoice(clipLanding);
+        }
+
         private void RotateCharacter()
         {
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
@@ -186,10 +189,10 @@ namespace LastKill
         {
             base.OnStopState();
 
-            if (_move.IsGrounded() && !_hardLanding && _move.GetVelocity().y < -3f)
+            if (_move.IsGrounded() && !_landing && _move.GetVelocity().y < -3f)
                 OnLanded.Invoke();
 
-            _hardLanding = false;
+            _landing = false;
             _highestPosition = 0;
             _move.StopRootMotion();
         }

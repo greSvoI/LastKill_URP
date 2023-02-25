@@ -12,8 +12,7 @@ namespace LastKill
 
         public event Action<AbstractAbilityState> abilityStopped = null;
         public event Action<AbstractAbilityState> abilityStarted = null;
-
-       public int StatePriority { get { return statePriority; } }
+        public int StatePriority { get { return statePriority; } }
 
         // Unity components
         protected Animator _animator = null;
@@ -35,6 +34,7 @@ namespace LastKill
             _capsule = GetComponent<ICapsule>();
             _input = GetComponent<PlayerInput>();
             _animator = GetComponent<Animator>();
+
         }
 
         public void StartState()
@@ -53,6 +53,7 @@ namespace LastKill
             StopTime = Time.time;
             OnStopState();
             abilityStopped?.Invoke(this);
+            
         }
 
         public abstract bool ReadyToStart();
