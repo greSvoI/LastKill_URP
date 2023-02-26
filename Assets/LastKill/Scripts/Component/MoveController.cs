@@ -99,10 +99,17 @@ namespace LastKill
 			AssignAnimationIDs();
 		
 		}
-
+		bool _aimed = false;
 		private void Update()
 		{
 			if (_died) return;
+			if(_input.CurrentWeapon != 0 && !_aimed)
+            {
+				_aimed = true;
+				_animator.CrossFade("Draw Weapon.Draw Weapon HighRight", 0.2f);
+            }
+
+
 			GravityControl();
 			GroundedCheck();
 

@@ -16,11 +16,18 @@ namespace LastKill
         [SerializeField] private string _startToCrawlAnimation = "Stand to Crawl";
         [SerializeField] private string _stopToSdantAnimation = "Crawl to Stand";
 
+        private AudioController _audioController;
+
         private bool _startingCrawl = false;
         private bool _stoppingCrawl = false;
 
         private float _defaultCapsuleRadius = 0;
 
+
+        private void Awake()
+        {
+            _audioController = GetComponent<AudioController>();
+        }
         public override void OnStartState()
         {
             nameState.text = "Crawl";

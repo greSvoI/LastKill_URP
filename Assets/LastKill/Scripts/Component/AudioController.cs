@@ -7,9 +7,15 @@ namespace LastKill
 {
     public class AudioController : MonoBehaviour
     {
-
+        [SerializeField] private FootStepCollection _asphalt;
         [SerializeField] private AudioSource voiceSource;
         [SerializeField] private AudioSource effectsSource;
+
+
+        private void Start()
+        {
+          
+        }
         internal void PlayVoice(AudioClip clip)
         {
             if (effectsSource == null) return;
@@ -17,6 +23,25 @@ namespace LastKill
             effectsSource.clip = clip;
             effectsSource.Play();
         }
+
+        private string NameTag()
+        {
+            RaycastHit hit;
+  
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f))
+
+            return hit.collider.tag;
+
+            else return null;
+        }
+        private  void WalkFootStep()
+        {
+            Debug.Log("Step");
+            Debug.Log(NameTag());
+
+
+        }
+      
     }
 
 }

@@ -46,8 +46,10 @@ namespace LastKill
 		//Strafe 1
 		//Crouch 2
 		//Crawl 3
+		Animator animator;
 		private void Awake()
 		{
+			animator = GetComponent<Animator>();
 			if (inputActions == null)
 				inputActions = new PlayerInputSystem();
 
@@ -162,11 +164,20 @@ namespace LastKill
                 _currentWeapon = 0;
             }
         }
+		
 
         private void OnMove(InputAction.CallbackContext obj)
 		{
 			_move = obj.ReadValue<Vector2>();
 			_moveAmount = Mathf.Clamp01(Mathf.Abs(_move.x) + Mathf.Abs(_move.y));
+			if(_move!=Vector2.zero)
+            {
+				animator.SetFloat("MoveAmount", _moveAmount);
+            }
+            else
+            {
+				animator.SetFloat("MoveAmount", 0f);
+			}
 		}
 
 		private void OnEnable()

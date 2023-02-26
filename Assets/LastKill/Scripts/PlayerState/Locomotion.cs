@@ -4,16 +4,18 @@ using UnityEngine;
 
 namespace LastKill
 {
-    public class Locomotion : AbstractAbilityState
+    public class Locomotion : AbstractAbilityState 
     {
         [SerializeField] private float _walkSpeed = 2f;
         [SerializeField] private float _sprintSpeed = 5f;
         [SerializeField] private string _animatorBlendState = "Locomotion.Free Movement";
 
+        private AudioController _audioController;
         //private IMove _move = null;
         private int _animatorIdSpeed;
         private void Awake()
         {
+            _audioController = GetComponent<AudioController>();
             _animatorIdSpeed = Animator.StringToHash("Speed");
         }
 

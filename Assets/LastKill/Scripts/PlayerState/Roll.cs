@@ -9,17 +9,23 @@ namespace LastKill
         [SerializeField] private float _rollSpeed = 7f;
         [SerializeField] private float _capsuleHeightOnRoll = 1f;
 
-        [SerializeField] private string _freeRollAnimation = "Roll.Free Roll";
-        [SerializeField] private string _aimedRollAnimation = "Roll.Aimed Roll";
+        [SerializeField] private string _freeRollAnimation = "Roll.RollForward";
+        [SerializeField] private string _aimedRollAnimation = "Roll.RollAimForward";
+        
 
-
+        private AudioController _audioController;
+        [SerializeField] private AudioClip _freeRollAudio;
+        [SerializeField] private AudioClip _aimedRollAudio;
 
         // direction and rotation
         private Vector3 _rollDirection = Vector3.forward;
         private float _targetRotation = 0;
         private Transform _camera = null;
+
+
         private void Awake()
         {
+            _audioController = GetComponent<AudioController>();
             _camera = Camera.main.transform;   
         }
         public override void OnStartState()
