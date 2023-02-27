@@ -34,7 +34,7 @@ namespace LastKill
 
 		// player
 		private bool _died = false;
-		private float _speed;
+		[SerializeField] private float _speed;
 		private float _animationBlend;
 		private float _targetRotation = 0.0f;
 		private float _rotationVelocity;
@@ -99,16 +99,8 @@ namespace LastKill
 			AssignAnimationIDs();
 		
 		}
-		bool _aimed = false;
 		private void Update()
 		{
-			if (_died) return;
-			if(_input.CurrentWeapon != 0 && !_aimed)
-            {
-				_aimed = true;
-				_animator.CrossFade("Draw Weapon.Draw Weapon HighRight", 0.2f);
-            }
-
 
 			GravityControl();
 			GroundedCheck();
@@ -220,8 +212,7 @@ namespace LastKill
 		{
 			Move(moveInput, targetSpeed, _mainCamera.transform.rotation, rotateCharacter);
 		}
-
-		public void Move(Vector2 moveInput, float targetSpeed, Quaternion cameraRotation, bool rotateCharacter = true)
+        public void Move(Vector2 moveInput, float targetSpeed, Quaternion cameraRotation, bool rotateCharacter = true)
 		{
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is no input, set the target speed to 0
@@ -270,6 +261,10 @@ namespace LastKill
 			// update animator if using character
 			if (_hasAnimator)
 			{
+				//speed did not go beyond
+				//affects animation events
+				if (_animationBlend < 0.2f) _animationBlend = 0f;
+
 				_animator.SetFloat(_animIDSpeed, _animationBlend);
 				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
 			}
@@ -278,7 +273,6 @@ namespace LastKill
 			_velocity = targetDirection.normalized * _speed + new Vector3(0.0f, _velocity.y, 0.0f);
 			_timeoutToResetVars = 0.5f;
 		}
-
 
 		public void Move(Vector3 velocity)
 		{
@@ -317,10 +311,6 @@ namespace LastKill
 			return Quaternion.Euler(0, yaw * Mathf.Rad2Deg, 0);
 		}
 
-		/// <summary>
-		/// Sets character new position
-		/// </summary>
-		/// <param name="newPosition"></param>
 		public void SetPosition(Vector3 newPosition)
 		{
 			bool currentEnable = _controller.enabled;

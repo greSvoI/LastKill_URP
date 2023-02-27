@@ -170,14 +170,7 @@ namespace LastKill
 		{
 			_move = obj.ReadValue<Vector2>();
 			_moveAmount = Mathf.Clamp01(Mathf.Abs(_move.x) + Mathf.Abs(_move.y));
-			if(_move!=Vector2.zero)
-            {
-				animator.SetFloat("MoveAmount", _moveAmount);
-            }
-            else
-            {
-				animator.SetFloat("MoveAmount", 0f);
-			}
+			
 		}
 
 		private void OnEnable()

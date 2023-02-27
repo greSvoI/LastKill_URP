@@ -101,24 +101,6 @@ namespace LastKill
             return !_move.IsGrounded() || _input.Jump;
         }
 
-        //public override void UpdateState()
-        //{
-        //    if(_landing)
-        //    {
-        //        if (HasFinishedAnimation(animHardLandState))
-        //            StopState();
-        //        return;
-        //    }
-
-        //    if(_move.IsGrounded())
-        //    {
-        //        SetAnimationState(animHardLandState, 0.02f);
-        //        _landing = true;
-
-        //    }
-        //    _move.Move(_startInput, _startSpeed, false);
-
-        //}
         public override void UpdateState()
         {
             if (_landing)

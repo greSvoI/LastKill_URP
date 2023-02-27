@@ -36,9 +36,7 @@ namespace LastKill
         }
         private  void WalkFootStep()
         {
-            Debug.Log("Step");
-            Debug.Log(NameTag());
-
+            effectsSource.PlayOneShot(_asphalt.walkSounds[UnityEngine.Random.Range(0,_asphalt.walkSounds.Count)]);
 
         }
       
