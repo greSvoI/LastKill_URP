@@ -7,14 +7,16 @@ namespace LastKill
 {
     public class AudioController : MonoBehaviour
     {
-        [SerializeField] private FootStepCollection _asphalt;
+        [SerializeField] private FootStepCollection _stepAsphalt;
+        [SerializeField] private FootStepCollection _stepMetall;
         [SerializeField] private AudioSource voiceSource;
         [SerializeField] private AudioSource effectsSource;
-
+        
+        private DetectionController _detection;
 
         private void Start()
         {
-          
+            _detection = GetComponent<DetectionController>();
         }
         internal void PlayVoice(AudioClip clip)
         {
@@ -36,8 +38,17 @@ namespace LastKill
         }
         private  void WalkFootStep()
         {
-            effectsSource.PlayOneShot(_asphalt.walkSounds[UnityEngine.Random.Range(0,_asphalt.walkSounds.Count)]);
+           switch(_detection.GroundLayer)
+            {
+                case 6: 
+                       effectsSource.PlayOneShot(_stepAsphalt.walkSounds[UnityEngine.Random.Range(0,_stepAsphalt.walkSounds.Count)]);
+                       break;
 
+                case 7:
+                       effectsSource.PlayOneShot(_stepMetall.walkSounds[UnityEngine.Random.Range(0, _stepMetall.walkSounds.Count)]);
+                       break;
+
+            }
         }
       
     }

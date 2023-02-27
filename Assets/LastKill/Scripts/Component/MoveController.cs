@@ -57,6 +57,7 @@ namespace LastKill
 		private GameObject _mainCamera;
 		private PlayerInput _input;
 		private AbstractAbilityState _abstractAbility;
+		private DetectionController _detectionController;
 
 		private bool _hasAnimator;
 
@@ -71,6 +72,7 @@ namespace LastKill
 			_cameraController = GetComponent<CameraController>();
 			_abstractAbility = GetComponent<AbstractAbilityState>();
 			_input = GetComponent<PlayerInput>();
+			_detectionController = GetComponent<DetectionController>();
 			_input.Died += OnDied;
 
 
@@ -78,20 +80,7 @@ namespace LastKill
 			_initialCapsuleRadius = _controller.radius;
 		}
 
-        private void OnDied()
-        {
-			StopMovement();
-			_died = true;
-			StartCoroutine(OnAlive());
-        }
-		IEnumerator OnAlive()
-        {
-			Debug.Log("Start Couru");
-			yield return new WaitForSecondsRealtime(3);
-			_died = false;
-			Debug.Log("3s");
 
-		}
 
 		private void Start()
 		{
@@ -99,9 +88,9 @@ namespace LastKill
 			AssignAnimationIDs();
 		
 		}
+
 		private void Update()
 		{
-
 			GravityControl();
 			GroundedCheck();
 
@@ -122,8 +111,12 @@ namespace LastKill
 
 			_controller.Move(_velocity * Time.deltaTime);
 		}
+        private void OnDrawGizmos()
+        {
+			
 
-		private void OnAnimatorMove()
+		}
+        private void OnAnimatorMove()
 		{
 			if (!_useRootMotion) return;
 
@@ -263,7 +256,7 @@ namespace LastKill
 			{
 				//speed did not go beyond
 				//affects animation events
-				if (_animationBlend < 0.2f) _animationBlend = 0f;
+				if (_animationBlend < 0.2f && _input.Move == Vector2.zero) _animationBlend = 0f;
 
 				_animator.SetFloat(_animIDSpeed, _animationBlend);
 				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
@@ -414,6 +407,18 @@ namespace LastKill
 			return relative;
 		}
 
-		
-    }
+
+		private void OnDied()
+		{
+			StopMovement();
+			_died = true;
+			StartCoroutine(OnAlive());
+		}
+		IEnumerator OnAlive()
+		{
+			yield return new WaitForSecondsRealtime(3);
+			_died = false;
+		}
+
+	}
 }

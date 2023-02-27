@@ -26,9 +26,10 @@ namespace LastKill
         private Quaternion _tweenStartRotation;
         private Vector3 _tweenBezierPoint;
 
-        private Vector3 _targetPosition;
+        [SerializeField] private Vector3 _targetPosition;
         private Quaternion _targetRotation;
 
+        private DetectionController _detection;
         private CustomDebug _debug;
         private ICapsule _capsule;
         private IMove _move;
@@ -37,11 +38,16 @@ namespace LastKill
             _debug = GetComponent<CustomDebug>();
             _move = GetComponent<IMove>();
             _capsule = GetComponent<ICapsule>();
+            _detection = GetComponent<DetectionController>();
         }
+        public Vector3 temp;
         public override void OnStartState()
         {
             _animator.CrossFadeInFixedTime(vaultAnimationState, 0.05f);
             _capsule.DisableCollision();
+
+
+            temp = transform.position;
 
             // calculate tween parameters
             _currentTweenWeight = 0;
@@ -49,16 +55,28 @@ namespace LastKill
             _tweenStartPosition = transform.position;
             _tweenStartRotation = transform.rotation;
 
-            // Draw char position
-            Vector3 p1 = _targetPosition + Vector3.up * _capsule.GetCapsuleRadius();
-            Vector3 p2 = _targetPosition + Vector3.up * (_capsule.GetCapsuleHeight() - _capsule.GetCapsuleRadius());
+            //// Draw char position
+            //Vector3 p1 = _targetPosition + Vector3.up * _capsule.GetCapsuleRadius();
+            //Vector3 p2 = _targetPosition + Vector3.up * (_capsule.GetCapsuleHeight() - _capsule.GetCapsuleRadius());
         }
-
         public override bool ReadyToStart()
         {
-            return _input.Move != Vector2.zero && _input.Jump && FoundVault();
-        }
 
+             return _input.Move != Vector2.zero && _input.Jump && FoundVault();
+             //return _input.Move != Vector2.zero && _input.Jump && _detection.JumpOver;
+        }
+        //private bool OnJumpOver()
+        //{
+        //    if (Physics.Raycast(_jumpOverPos.position, transform.forward, out _groundHit, 0.5f))
+        //    {
+        //        if (_input.Fire)
+        //        {
+        //            move.StopRootMotion();
+        //            //move.ApplyRootMotion(Vector3.one, true);
+        //        }
+
+        //    }
+        //}
         public override void UpdateState()
         {
             _move.StopRootMotion();
@@ -81,11 +99,18 @@ namespace LastKill
             _move.StopRootMotion();
             _capsule.EnableCollision();
         }
-
+        public Vector3 p1;
+        public Vector3 p2;
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position + transform.forward * capsuleCastDistance + Vector3.up * capsuleCastRadius, capsuleCastRadius);
+            Gizmos.DrawWireSphere(transform.position + transform.forward * capsuleCastDistance + Vector3.up * (maxVaultHeight - capsuleCastRadius), capsuleCastRadius);
+        }
         private bool FoundVault()
         {
-            Vector3 p1 = transform.position + transform.forward * capsuleCastDistance + Vector3.up * capsuleCastRadius;
-            Vector3 p2 = transform.position + transform.forward * capsuleCastDistance + Vector3.up * (maxVaultHeight - capsuleCastRadius);
+             p1 = transform.position + transform.forward * capsuleCastDistance + Vector3.up * capsuleCastRadius;
+             p2 = transform.position + transform.forward * capsuleCastDistance + Vector3.up * (maxVaultHeight - capsuleCastRadius);
 
             if (_debug)
             {
@@ -96,6 +121,7 @@ namespace LastKill
             if (Physics.CapsuleCast(p1, p2, capsuleCastRadius, -transform.forward, out RaycastHit capsuleHit,
                 capsuleCastDistance, vaultMask, QueryTriggerInteraction.Ignore))
             {
+                
                 Vector3 startTop = capsuleHit.point;
                 startTop.y = transform.position.y + maxVaultHeight + capsuleCastRadius;
 

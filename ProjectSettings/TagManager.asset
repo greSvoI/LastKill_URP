@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - FootStep/Asphalt
+  - FootStep/Gravel
+  - FootStep/Metall
+  - JumpOver
   layers:
   - Default
   - TransparentFX
@@ -13,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Asphalt
-  - 
+  - Metall
   - 
   - 
   - 
