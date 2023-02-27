@@ -7,91 +7,57 @@ namespace LastKill
 {
     public class JumpOver : AbstractAbilityState
     {
-        [SerializeField] private LayerMask vaultMask;
-        [SerializeField] private float capsuleCastRadius = 0.2f;
-        [SerializeField] private float capsuleCastDistance = 1.2f;
+        [SerializeField] private LayerMask _obstacleMask;
+        [SerializeField] private float _capsuleRadius = 0.2f;
+        [SerializeField] private float _capsuleDistance = 1.2f;
         [Space]
-        [SerializeField] private float maxVaultHeight = 1.5f;
-        [SerializeField] private float distanceAfterVault = 0.5f;
+        [SerializeField] private float _maxObstacleHeight = 1.5f;
+        [SerializeField] private float _distanceAfterObstacle = 0.5f;
         [Space]
-        [SerializeField] private string vaultAnimationState = "Jump Over";
+        [SerializeField] private string _obstacleAnimationState = "Jump Over";
         [Space]
-        [SerializeField] private float vaultDuration = 0.4f;
-        [SerializeField] private AnimationCurve movementCurve;
+        [SerializeField] private float _obstacleDuration = 0.4f;
+        [SerializeField] private AnimationCurve _movementCurve;
 
         private float _currentTweenWeight = 0;
         private float _tweenStep;
 
-        private Vector3 _tweenStartPosition;
-        private Quaternion _tweenStartRotation;
-        private Vector3 _tweenBezierPoint;
-
-        [SerializeField] private Vector3 _targetPosition;
-        private Quaternion _targetRotation;
+        private Vector3 _targetPosition;
+        private Vector3 _startPosition;
+        private Vector3 _bezierPoint;
 
         private DetectionController _detection;
-        private CustomDebug _debug;
-        private ICapsule _capsule;
-        private IMove _move;
+
         private void Awake()
         {
-            _debug = GetComponent<CustomDebug>();
-            _move = GetComponent<IMove>();
-            _capsule = GetComponent<ICapsule>();
             _detection = GetComponent<DetectionController>();
         }
-        public Vector3 temp;
         public override void OnStartState()
         {
-            _animator.CrossFadeInFixedTime(vaultAnimationState, 0.05f);
+            _animator.CrossFadeInFixedTime(_obstacleAnimationState, 0.05f);
             _capsule.DisableCollision();
 
-
-            temp = transform.position;
-
-            // calculate tween parameters
             _currentTweenWeight = 0;
-            _tweenStep = Vector3.Distance(transform.position, _targetPosition) / vaultDuration;
-            _tweenStartPosition = transform.position;
-            _tweenStartRotation = transform.rotation;
+            _tweenStep = Vector3.Distance(transform.position, _targetPosition) / _obstacleDuration;
+            _startPosition = transform.position;
 
-            //// Draw char position
-            //Vector3 p1 = _targetPosition + Vector3.up * _capsule.GetCapsuleRadius();
-            //Vector3 p2 = _targetPosition + Vector3.up * (_capsule.GetCapsuleHeight() - _capsule.GetCapsuleRadius());
         }
         public override bool ReadyToStart()
         {
-
-             return _input.Move != Vector2.zero && _input.Jump && FoundVault();
-             //return _input.Move != Vector2.zero && _input.Jump && _detection.JumpOver;
+             return _input.Move != Vector2.zero && _input.Jump && Jump();
         }
-        //private bool OnJumpOver()
-        //{
-        //    if (Physics.Raycast(_jumpOverPos.position, transform.forward, out _groundHit, 0.5f))
-        //    {
-        //        if (_input.Fire)
-        //        {
-        //            move.StopRootMotion();
-        //            //move.ApplyRootMotion(Vector3.one, true);
-        //        }
-
-        //    }
-        //}
+        [SerializeField] private AnimatorStateInfo state1;
         public override void UpdateState()
         {
             _move.StopRootMotion();
-            UpdateTween();
+
+            UpdateJump();
 
             if (_animator.IsInTransition(0)) return;
 
-            var state = _animator.GetCurrentAnimatorStateInfo(0);
-
-            if (state.IsName(vaultAnimationState))
-            {
-                float normalizedTime = Mathf.Repeat(state.normalizedTime, 1f);
-                if (normalizedTime > 0.95f)
+            if(HasFinishedAnimation(_obstacleAnimationState))
                     StopState();
-            }
+
         }
 
         public override void OnStopState()
@@ -99,69 +65,54 @@ namespace LastKill
             _move.StopRootMotion();
             _capsule.EnableCollision();
         }
-        public Vector3 p1;
-        public Vector3 p2;
+
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position + transform.forward * capsuleCastDistance + Vector3.up * capsuleCastRadius, capsuleCastRadius);
-            Gizmos.DrawWireSphere(transform.position + transform.forward * capsuleCastDistance + Vector3.up * (maxVaultHeight - capsuleCastRadius), capsuleCastRadius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position + transform.forward * _capsuleDistance + Vector3.up * _capsuleRadius, _capsuleRadius);
+            Gizmos.DrawWireSphere(transform.position + transform.forward * _capsuleDistance + Vector3.up * (_maxObstacleHeight - _capsuleRadius), _capsuleRadius);
+            Gizmos.DrawSphere(_bezierPoint + Vector3.up * 0.3f, 0.1f);
         }
-        private bool FoundVault()
+        private bool Jump()
         {
-             p1 = transform.position + transform.forward * capsuleCastDistance + Vector3.up * capsuleCastRadius;
-             p2 = transform.position + transform.forward * capsuleCastDistance + Vector3.up * (maxVaultHeight - capsuleCastRadius);
+            Vector3 bottom = transform.position + transform.forward * _capsuleDistance + Vector3.up * _capsuleRadius;
+            Vector3 top = transform.position + transform.forward * _capsuleDistance + Vector3.up * (_maxObstacleHeight - _capsuleRadius);
 
-            if (_debug)
+            if(Physics.CapsuleCast(bottom,top, _capsuleRadius,-transform.forward, out RaycastHit capsuleHit,
+                _capsuleDistance,_obstacleMask, QueryTriggerInteraction.Ignore))
             {
-                _debug.DrawCapsule(p1, p2, capsuleCastRadius, Color.white);
-                _debug.DrawLabel("Vault capsule cast", p1 + Vector3.up, Color.white);
-            }
-
-            if (Physics.CapsuleCast(p1, p2, capsuleCastRadius, -transform.forward, out RaycastHit capsuleHit,
-                capsuleCastDistance, vaultMask, QueryTriggerInteraction.Ignore))
-            {
-                
                 Vector3 startTop = capsuleHit.point;
-                startTop.y = transform.position.y + maxVaultHeight + capsuleCastRadius;
+                startTop.y = transform.position.y + _maxObstacleHeight + _capsuleRadius;
 
-                if (_debug)
-                    _debug.DrawSphere(capsuleHit.point, capsuleCastRadius, Color.yellow, 1f);
-
-                // check height
-                if (Physics.SphereCast(startTop, capsuleCastRadius, Vector3.down, out RaycastHit top,
-                    maxVaultHeight, vaultMask, QueryTriggerInteraction.Ignore))
+                if (Physics.SphereCast(startTop, _capsuleRadius, Vector3.down, out RaycastHit topHit,
+                  _maxObstacleHeight, _obstacleMask, QueryTriggerInteraction.Ignore))
                 {
-                    capsuleHit.normal = new Vector3(capsuleHit.normal.x, 0, capsuleHit.normal.z);
-                    capsuleHit.normal.Normalize();
-
-                    _targetPosition = capsuleHit.point + capsuleHit.normal * distanceAfterVault;
+                    _targetPosition = capsuleHit.point + capsuleHit.normal * _distanceAfterObstacle;
 
                     if (Physics.Raycast(_targetPosition, Vector3.down, out RaycastHit groundHit, 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
                         _targetPosition.y = groundHit.point.y;
                     else
                         _targetPosition.y = transform.position.y;
 
-                    if (_debug)
-                        _debug.DrawSphere(top.point, capsuleCastRadius, Color.blue, 1f);
-
-                    // check if position is free to vault
+                    // check if position is free to jump over
                     Vector3 center = _targetPosition + Vector3.up;
                     if (Physics.OverlapSphere(center, _capsule.GetCapsuleRadius(), Physics.AllLayers, QueryTriggerInteraction.Ignore).Length != 0)
                         return false;
 
-                    _targetRotation = Quaternion.LookRotation(capsuleHit.normal);
-                    _tweenBezierPoint = top.point + Vector3.down * 0.3f;
+                    _bezierPoint = topHit.point + Vector3.down * 0.3f;
                     return true;
                 }
             }
 
             return false;
-        }
 
-        private void UpdateTween()
+        }
+        private void UpdateJump()
         {
-            if (Mathf.Approximately(_currentTweenWeight, 1))
+            //need to move along a parabola
+            //transform.position = Vector3.MoveTowards(transform.position, _targetPosition,Time.deltaTime);
+
+            if (_currentTweenWeight == 1f)
             {
                 _move.ApplyRootMotion(Vector3.one, true);
                 return;
@@ -169,17 +120,28 @@ namespace LastKill
 
             _currentTweenWeight = Mathf.MoveTowards(_currentTweenWeight, 1, _tweenStep * Time.deltaTime);
 
-            float weight = movementCurve.Evaluate(_currentTweenWeight);
 
-            _move.SetPosition(BezierLerp(_tweenStartPosition, _targetPosition, _tweenBezierPoint, weight));
-            transform.rotation = Quaternion.Lerp(_tweenStartRotation, _targetRotation, weight);
+            _move.SetPosition(QuadraticBezierCurves(_startPosition, _targetPosition, _bezierPoint, _currentTweenWeight));
+
         }
-        public Vector3 BezierLerp(Vector3 start, Vector3 end, Vector3 bezier, float t)
-        {
-            Vector3 point = Mathf.Pow(1 - t, 2) * start;
-            point += 2 * (1 - t) * t * bezier;
-            point += t * t * end;
 
+
+        Vector3 CubicBezierCurve(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
+        {
+            Vector3 a = Vector3.Lerp(p0, p1, t);
+            Vector3 b = Vector3.Lerp(p1, p2, t);
+            Vector3 c = Vector3.Lerp(p2, p3, t);
+            Vector3 d = Vector3.Lerp(a, b, t);
+            Vector3 e = Vector3.Lerp(b, c, t);
+            return  Vector3.Lerp(d, e, t);
+        }
+
+        public Vector3 QuadraticBezierCurves(Vector3 start, Vector3 end, Vector3 bezier, float t)
+        {
+            //Vector3 point = Mathf.Pow(1 - t, 2) * start;
+            //point += 2 * (1 - t) * t * bezier;
+            //point += t * t * end;
+            Vector3 point = (1f - t) * (1f - t) * start + 2f * (1f - t) * t * bezier + t * t * end;
             return point;
         }
     }

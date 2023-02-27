@@ -38,7 +38,7 @@ namespace LastKill
 
         void Update()
         {
-            Debug.DrawRay(_jumpOverPos.position, transform.forward * 0.5f, Color.black);
+            Debug.DrawRay(_jumpOverPos.position, transform.forward * 1f, Color.black);
 
             if(Physics.Raycast(_jumpOverPos.position, transform.forward, out _jumpOverHit, 0.5f))
             {

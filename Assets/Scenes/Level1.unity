@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3383829930231029044, guid: ac47b1f4bd4a43e4fb5ba641e313447f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73742
+      objectReference: {fileID: 0}
     - target: {fileID: 3384594862213923972, guid: ac47b1f4bd4a43e4fb5ba641e313447f, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -679,7 +683,7 @@ Transform:
   m_GameObject: {fileID: 1489104031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 127.56262, y: 39.812, z: -12.029}
-  m_LocalScale: {x: 0.21298, y: 1, z: 4.2807}
+  m_LocalScale: {x: 0.3025168, y: 1, z: 4.2807}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1369,6 +1373,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5208683494856177938, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5294428186238431031, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -1425,6 +1433,82 @@ PrefabInstance:
       propertyPath: nameState
       value: 
       objectReference: {fileID: 394564736}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: vaultDuration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _capsuleDistance
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _obstacleDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[0].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[1].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[0].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[1].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[0].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[1].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[0].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[1].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: movementCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391466, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _movementCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 5440487211788391472, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: _footStepGrass.Array.size
       value: 4
