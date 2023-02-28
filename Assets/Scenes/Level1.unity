@@ -914,7 +914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2267175195891335942, guid: d00d5e5fecb01054c9ef520de2e92a53, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2267175195891336058, guid: d00d5e5fecb01054c9ef520de2e92a53, type: 3}
       propertyPath: m_Pivot.x
@@ -1034,6 +1034,14 @@ PrefabInstance:
       propertyPath: nameState
       value: 
       objectReference: {fileID: 394564736}
+    - target: {fileID: 5440487211788391448, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _walkSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440487211788391448, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: _sprintSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5440487211788391452, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: nameState
       value: 
@@ -1042,6 +1050,10 @@ PrefabInstance:
       propertyPath: nameState
       value: 
       objectReference: {fileID: 394564736}
+    - target: {fileID: 5440487211788391455, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 193
+      objectReference: {fileID: 0}
     - target: {fileID: 5440487211788391458, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: nameState
       value: 

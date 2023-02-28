@@ -39,7 +39,7 @@ namespace LastKill
             _rollDirection = transform.forward;
             _targetRotation = transform.eulerAngles.y;
 
-            _move.ApplyRootMotion(Vector3.one, false);
+            //_move.ApplyRootMotion(Vector3.one, false);
      
 
             if (_input.Move != Vector2.zero)
