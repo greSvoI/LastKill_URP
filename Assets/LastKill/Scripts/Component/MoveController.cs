@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 namespace LastKill
 {
-    public class MoveController : MonoBehaviour, IMove, ICapsule
+    public class MoveController : MonoBehaviour, IMove, ICapsule 
     {
 		[Header("Player")]
 		[Tooltip("How fast the character turns to face movement direction")]
@@ -56,7 +56,6 @@ namespace LastKill
 		private CameraController _cameraController;
 		private GameObject _mainCamera;
 		private PlayerInput _input;
-		private AbstractAbilityState _abstractAbility;
 		private DetectionController _detectionController;
 
 		private bool _hasAnimator;
@@ -70,7 +69,6 @@ namespace LastKill
 			_mainCamera = Camera.main.gameObject;
 			_controller = GetComponent<CharacterController>();
 			_cameraController = GetComponent<CameraController>();
-			_abstractAbility = GetComponent<AbstractAbilityState>();
 			_input = GetComponent<PlayerInput>();
 			_detectionController = GetComponent<DetectionController>();
 			_input.Died += OnDied;
@@ -88,11 +86,19 @@ namespace LastKill
 			AssignAnimationIDs();
 		
 		}
-
+		bool temp = false;
 		private void Update()
 		{
+		
+			if (_died) return;
 			GravityControl();
 			GroundedCheck();
+
+			if(_input.Fire && !temp)
+            {
+				Temp();
+				temp = true;
+            }
 
 			if (_timeoutToResetVars <= 0)
 			{
@@ -111,9 +117,32 @@ namespace LastKill
 
 			_controller.Move(_velocity * Time.deltaTime);
 		}
-        private void OnDrawGizmos()
+		private void Temp()
         {
-			
+			Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5);
+			foreach (var hitCollider in hitColliders)
+        {
+
+			}
+		}
+		private void OnDied()
+		{
+			StopMovement();
+			_died = true;
+			StartCoroutine(OnAlive());
+		}
+		IEnumerator OnAlive()
+		{
+			yield return new WaitForSecondsRealtime(3);
+			_died = false;
+		}
+		private void OnDrawGizmos()
+        {
+			if (Grounded)
+				Gizmos.color = Color.green;
+			else Gizmos.color = Color.red;
+
+			Gizmos.DrawSphere(transform.position, GroundedRadius);
 
 		}
         private void OnAnimatorMove()
@@ -140,7 +169,9 @@ namespace LastKill
 			//Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
 			//Grounded = Physics.CheckSphere(spherePosition, _controller.radius, GroundLayers, QueryTriggerInteraction.Ignore);
 			RaycastHit hit;
-			Grounded = Physics.Raycast(transform.position + new Vector3(0, 0.3f, 0), Vector3.down, out hit, 0.5f);
+			//Grounded = Physics.Raycast(transform.position + new Vector3(0, 0.3f, 0), Vector3.down, out hit, 0.5f);
+			Grounded = Physics.CheckSphere(transform.position, GroundedRadius,GroundLayers);
+
 
 			if (!Grounded && !_controller.isGrounded) return;
 
@@ -148,16 +179,16 @@ namespace LastKill
         }
 		private void OnDrawGizmosSelected()
 		{
-			Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
-			Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
+			//Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
+			//Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
-			if (Grounded) Gizmos.color = transparentGreen;
-			else Gizmos.color = transparentRed;
+			//if (Grounded) Gizmos.color = transparentGreen;
+			//else Gizmos.color = transparentRed;
 
-			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-			Gizmos.DrawSphere(
-				new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
-				GroundedRadius);
+			//// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
+			//Gizmos.DrawSphere(
+			//	new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
+			//	GroundedRadius);
 		}
 		private void Depenetrate()
 		{
@@ -407,18 +438,5 @@ namespace LastKill
 			return relative;
 		}
 
-
-		private void OnDied()
-		{
-			StopMovement();
-			_died = true;
-			StartCoroutine(OnAlive());
-		}
-		IEnumerator OnAlive()
-		{
-			yield return new WaitForSecondsRealtime(3);
-			_died = false;
-		}
-
-	}
+    }
 }

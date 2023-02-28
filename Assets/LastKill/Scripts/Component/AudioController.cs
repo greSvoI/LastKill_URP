@@ -36,6 +36,10 @@ namespace LastKill
 
             else return null;
         }
+        private void OnLand()
+        {
+
+        }
         private  void WalkFootStep()
         {
            switch(_detection.GroundLayer)

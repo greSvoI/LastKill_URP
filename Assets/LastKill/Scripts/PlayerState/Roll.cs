@@ -31,13 +31,15 @@ namespace LastKill
         public override void OnStartState()
         {
             nameState.text = "Roll";
-            _animator.CrossFadeInFixedTime(_freeRollAnimation, 0.1f);
+
+            _animator.CrossFadeInFixedTime(weapon.WithWeapon() ? _aimedRollAnimation : _freeRollAnimation, 0.1f);
+
             _capsule.SetCapsuleSize(_capsuleHeightOnRoll, _capsule.GetCapsuleRadius());
 
             _rollDirection = transform.forward;
             _targetRotation = transform.eulerAngles.y;
 
-            //_move.ApplyRootMotion(Vector3.one, false);
+            _move.ApplyRootMotion(Vector3.one, false);
      
 
             if (_input.Move != Vector2.zero)
@@ -71,7 +73,7 @@ namespace LastKill
             base.OnStopState();
             _capsule.ResetCapsuleSize();
             _move.StopMovement();
-            //_move.StopRootMotion();
+            _move.StopRootMotion();
         }
     }
 }

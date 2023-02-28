@@ -14,7 +14,7 @@ namespace LastKill
         [SerializeField] private string animHardLandState = "Air.HardLand";
         [SerializeField] private string animSoftLandState = "Air.SoftLand";
         [SerializeField] private string animDeathState = "Air.Death";
-        [SerializeField] private string _playAnimState;
+        [SerializeField] private string playAnimState;
         [Header("Jump parameters")]
         [SerializeField] private float jumpHeight = 1.2f;
         [SerializeField] private float speedOnAir = 6f;
@@ -109,7 +109,7 @@ namespace LastKill
                 _move.ApplyRootMotion(Vector3.one, false);
 
                 // wait animation finish
-                if (HasFinishedAnimation(_playAnimState))
+                if (HasFinishedAnimation(playAnimState))
                     StopState();
 
                 return;
@@ -145,8 +145,8 @@ namespace LastKill
         private void LandingSoft(bool landing, string animState, AudioClip clipLanding)
         {
             _landing = landing;
-            _playAnimState = animState;
-            SetAnimationState(_playAnimState, 0.02f);
+            playAnimState = animState;
+            SetAnimationState(playAnimState, 0.02f);
             // call event
             OnLanded.Invoke();
             _audioController.PlayVoice(clipLanding);

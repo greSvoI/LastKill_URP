@@ -23,6 +23,7 @@ namespace LastKill
 
         protected IMove _move;
         protected ICapsule _capsule;
+        protected IWeapon weapon;
         protected PlayerInput _input;
 
 
@@ -34,6 +35,7 @@ namespace LastKill
             _capsule = GetComponent<ICapsule>();
             _input = GetComponent<PlayerInput>();
             _animator = GetComponent<Animator>();
+            weapon = GetComponent<IWeapon>();
 
         }
 

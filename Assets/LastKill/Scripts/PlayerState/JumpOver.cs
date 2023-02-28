@@ -44,7 +44,8 @@ namespace LastKill
         }
         public override bool ReadyToStart()
         {
-             return _input.Move != Vector2.zero && _input.Jump && Jump();
+            //return _input.Move != Vector2.zero && _input.Jump && Jump();
+            return false;
         }
         [SerializeField] private AnimatorStateInfo state1;
         public override void UpdateState()
@@ -70,7 +71,7 @@ namespace LastKill
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position + transform.forward * _capsuleDistance + Vector3.up * _capsuleRadius, _capsuleRadius);
-            Gizmos.DrawWireSphere(transform.position + transform.forward * _capsuleDistance + Vector3.up * (_maxObstacleHeight - _capsuleRadius), _capsuleRadius);
+            Gizmos.DrawWireSphere(transform.position + transform.forward * _capsuleDistance + Vector3.up * _maxObstacleHeight, _capsuleRadius);
             Gizmos.DrawSphere(_bezierPoint + Vector3.up * 0.3f, 0.1f);
         }
         private bool Jump()

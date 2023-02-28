@@ -23,6 +23,7 @@ namespace LastKill
 		[SerializeField] private int _lastWeapon;
 
 		public Action Died;
+		public Action SelectWeapon;
 
 
 		//hold button or single click
@@ -158,11 +159,11 @@ namespace LastKill
         {
 			_lastWeapon = _currentWeapon;
 			int.TryParse(obj.control.displayName,out _currentWeapon);
-
             if (_lastWeapon == _currentWeapon)
             {
                 _currentWeapon = 0;
             }
+			SelectWeapon?.Invoke();
         }
 		
 

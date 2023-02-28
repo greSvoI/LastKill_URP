@@ -22,7 +22,7 @@ public class lkCharacterMovement : MonoBehaviour
 
 
 	[SerializeField] private Vector3 floorMovement;
-	[SerializeField] private float floorOffsetY = 0.1f;
+
 
 	[Header("Jumping")]
 	public float jumpHeight = 3f;
