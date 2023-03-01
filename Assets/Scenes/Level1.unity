@@ -515,25 +515,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1215584231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5440487211950168636, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
-  m_PrefabInstance: {fileID: 7126914791072027807}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1215584254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215584231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c5ba1daab33327418e53874816f1eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalAnimation: Horizontal
-  verticalAnimation: Vertical
 --- !u!1 &1380670932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3385566286898674232, guid: ac47b1f4bd4a43e4fb5ba641e313447f, type: 3}
@@ -1037,12 +1018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00d5e5fecb01054c9ef520de2e92a53, type: 3}
---- !u!4 &4632981294259078065 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 233940852, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
-  m_PrefabInstance: {fileID: 7126914791072027807}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &7126914791072027807
+--- !u!1001 &3005489267906906997
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1057,14 +1033,6 @@ PrefabInstance:
       propertyPath: nameState
       value: 
       objectReference: {fileID: 394564736}
-    - target: {fileID: 5440487211788391448, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
-      propertyPath: _walkSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5440487211788391448, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
-      propertyPath: _sprintSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5440487211788391452, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: nameState
       value: 
@@ -1073,22 +1041,10 @@ PrefabInstance:
       propertyPath: nameState
       value: 
       objectReference: {fileID: 394564736}
-    - target: {fileID: 5440487211788391455, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
-      propertyPath: GroundLayers.m_Bits
-      value: 193
-      objectReference: {fileID: 0}
     - target: {fileID: 5440487211788391458, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: nameState
       value: 
       objectReference: {fileID: 394564736}
-    - target: {fileID: 5440487211788391459, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
-      propertyPath: stepMetall
-      value: 
-      objectReference: {fileID: 11400000, guid: 0a7f0bb60d10efc42be649ce2e3a33d2, type: 2}
-    - target: {fileID: 5440487211788391459, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
-      propertyPath: stepAsphalt
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f1885462f237a84ba0e1da1c0d208cb, type: 2}
     - target: {fileID: 5440487211788391462, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
       propertyPath: nameState
       value: 
@@ -1151,6 +1107,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+--- !u!4 &7126914791295349739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 233940852, guid: 004d790493a75c74bb96c0f803c19e61, type: 3}
+  m_PrefabInstance: {fileID: 3005489267906906997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8730038422980332794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1165,7 +1126,7 @@ PrefabInstance:
     - target: {fileID: 7321221347923512612, guid: 6a2ca42eaa4a8c4428b287282c1e0984, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 4632981294259078065}
+      objectReference: {fileID: 7126914791295349739}
     - target: {fileID: 7321221347923512612, guid: 6a2ca42eaa4a8c4428b287282c1e0984, type: 3}
       propertyPath: m_LookAt
       value: 

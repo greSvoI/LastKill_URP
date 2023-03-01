@@ -33,7 +33,7 @@ namespace LastKill
         {
             nameState.text = "Roll";
 
-            _animator.SetAnimationState(_weapon.WithWeapon() ? aimedRollAnimation : freeRollAnimation, 0, 0.1f);
+            _animator.SetAnimationState(_weapon.WithWeapon ? aimedRollAnimation : freeRollAnimation, 0, 0.1f);
 
             _capsule.SetCapsuleSize(capsuleHeightOnRoll, _capsule.GetCapsuleRadius());
 

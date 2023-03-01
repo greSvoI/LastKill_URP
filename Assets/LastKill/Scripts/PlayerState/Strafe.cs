@@ -10,14 +10,17 @@ namespace LastKill
 
         [Header("Animation")]
         [SerializeField] private string strafeAnimState = "Locomotion.Strafe";
+        [SerializeField] private string animatorParam = "Strafe";
 
         CameraController _cameraController;
 
+        private int hashAnimBool;
         private int hashAnimState;
        
         private void Awake()
         {
             hashAnimState = Animator.StringToHash(strafeAnimState);
+            hashAnimBool = Animator.StringToHash(animatorParam);
             _cameraController = GetComponent<CameraController>();
         }
 
@@ -25,12 +28,14 @@ namespace LastKill
         public override void OnStartState()
         {
             nameState.text = "Strafe";
+            _animator.Animator.SetBool(hashAnimBool, true);
             _animator.SetAnimationState(hashAnimState, 0);
+         
         }
 
         public override bool ReadyToStart()
         {
-            return _move.IsGrounded() && _input.Aim;
+            return _move.IsGrounded() && _weapon.WithWeapon;
         }
 
         public override void UpdateState()
@@ -41,8 +46,11 @@ namespace LastKill
             // update animator
             _animator.StrafeUpdate();
 
-            if (!_input.Aim || !_move.IsGrounded())
+            if (!_weapon.WithWeapon || !_move.IsGrounded())
+            {
+                _animator.Animator.SetBool(hashAnimBool, true);
                 StopState();
+            }
         }
     }
 }

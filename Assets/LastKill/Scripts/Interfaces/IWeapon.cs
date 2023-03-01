@@ -6,8 +6,7 @@ namespace LastKill
 {
     public interface IWeapon 
     {
-        public bool WithWeapon();
-        //public void ChangeWeapon();
+        public bool WithWeapon { get; }
         public void PutAwayWeapon();
     }
 }

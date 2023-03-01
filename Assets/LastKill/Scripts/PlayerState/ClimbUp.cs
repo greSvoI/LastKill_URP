@@ -45,18 +45,18 @@ namespace LastKill
 
         public override void UpdateState()
         {
-            var state = _animator.GetCurrentStateInfo(0);
+            var state = _animator.Animator.GetCurrentAnimatorStateInfo(0);
 
             //if (_animator.IsInTransition(0) || !state.IsName(shortClimbAnimState)) return;
 
             if (!_animator.HasFinishedAnimation(shortClimbAnimState, 0)) return;
 
             var normalizedTime = Mathf.Repeat(state.normalizedTime, 1f);
-            if (_animator.isMatchTarget() && !hasMatchTarget)
+            if (_animator.Animator.isMatchingTarget && !hasMatchTarget)
             {
                 // calculate target position
                 Vector3 targetPosition = targetHit.point - targetHit.normal * _capsule.GetCapsuleRadius() * 0.5f;
-                _animator.MatchTarget(targetPosition, Quaternion.identity, AvatarTarget.Root,
+                _animator.Animator.MatchTarget(targetPosition, Quaternion.identity, AvatarTarget.Root,
                     new MatchTargetWeightMask(Vector3.one, 0f), 0.15f, 0.42f);
 
                 hasMatchTarget = true;

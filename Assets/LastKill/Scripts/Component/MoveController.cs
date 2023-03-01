@@ -168,7 +168,7 @@ namespace LastKill
 			// set sphere position, with offset
 			//Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
 			//Grounded = Physics.CheckSphere(spherePosition, _controller.radius, GroundLayers, QueryTriggerInteraction.Ignore);
-			RaycastHit hit;
+			//RaycastHit hit;
 			//Grounded = Physics.Raycast(transform.position + new Vector3(0, 0.3f, 0), Vector3.down, out hit, 0.5f);
 			Grounded = Physics.CheckSphere(transform.position, GroundedRadius,GroundLayers);
 

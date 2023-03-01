@@ -25,6 +25,7 @@ namespace LastKill
 
         private bool hasAnimator;
 
+        public bool WithWeapon => withWeapon;
         public List<GameObject> spineWeapons;
         public List<GameObject> handWeapons;
 
@@ -49,9 +50,9 @@ namespace LastKill
         }
         private void Reload()
         {
-            if (withWeapon && !HasFinishedAnimation("Reload"))
+            if (withWeapon && !_animator.GetBool("Reload"))
             {
-                SetAnimationState("Reload", 0.1f);
+                _animator.SetBool("Reload", true);
             }
         }
         private void SelectWeapon()
@@ -64,7 +65,7 @@ namespace LastKill
             hashWeaponID = Animator.StringToHash("WeaponID");
             hashDrawWeapon = Animator.StringToHash("DrawWeapon");
         }
-        public void TakeUpWeapon(int id)
+        private void TakeUpWeapon(int id)
         {
             currentWeapon = id;
             _animator.SetInteger(hashWeaponID, id);
@@ -114,22 +115,20 @@ namespace LastKill
 
         }
 
-        public bool WithWeapon()
-        {
-            return withWeapon;
-        }
         public void PutAwayWeapon()
         {
+
             _animator.SetBool(hashDrawWeapon, true);
             withWeapon = false;
         }
 
+        //Надо как убрать это, использовать animator controller
         protected void SetAnimationState(string stateName, float transitionDuration = 0.1f)
         {
-            if (_animator.HasState(2, Animator.StringToHash(stateName)))
-            {
+           // if (_animator.HasState(2, Animator.StringToHash(stateName)))
+          //  {
                 _animator.CrossFadeInFixedTime(stateName, transitionDuration, 2);
-            }
+           // }
         }
         protected bool HasFinishedAnimation(string state)
         {

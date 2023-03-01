@@ -13,17 +13,17 @@ namespace LastKill
         private int hashHorizontal;
         private int hashVertical;
 
-
-        private Animator _animator;
         private PlayerInput _input;
-        private bool hasAnimator;
+        private Animator _animator;
+        public Animator Animator { get => _animator; }
 
         private void Start()
         {
+
             _input = GetComponent<PlayerInput>();
-            hasAnimator = TryGetComponent(out _animator);
-            if (!hasAnimator) Debug.LogWarning("AnimatorController not found Animatro");
+            _animator = GetComponent<Animator>();
             AssignAnimationIDs();
+           
         }
 
         private void AssignAnimationIDs()
@@ -61,30 +61,10 @@ namespace LastKill
                 _animator.CrossFadeInFixedTime(stateName, transitionDuration, layerIndex);
         }
 
-        public int GetLayerIndex(string nameLayer)
-        {
-            if (string.IsNullOrEmpty(nameLayer)) return -1;
-            return _animator.GetLayerIndex(nameLayer);
-        }
         public void StrafeUpdate()
         {
             _animator.SetFloat(hashHorizontal, _input.Move.x, 0.1f, Time.deltaTime);
             _animator.SetFloat(hashVertical, _input.Move.y, 0.1f, Time.deltaTime);
-        }
-
-        public AnimatorStateInfo GetCurrentStateInfo(int layerIndex)
-        {
-            return _animator.GetCurrentAnimatorStateInfo(0);
-        }
-
-        public void MatchTarget(Vector3 position, Quaternion quaternion, AvatarTarget avatar, MatchTargetWeightMask mask,float startTime,float targetTime)
-        {
-            _animator.MatchTarget(position, quaternion, avatar, mask, startTime, targetTime);
-        }
-
-        public bool isMatchTarget()
-        {
-            return _animator.isMatchingTarget;
         }
     }
 }
