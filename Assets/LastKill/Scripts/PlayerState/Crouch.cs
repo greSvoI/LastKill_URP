@@ -8,22 +8,28 @@ namespace LastKill
     [DisallowMultipleComponent]
     public class Crouch : AbstractAbilityState
     {
-
+        [SerializeField] private string crouchAnimState = "Crouch.Free Crouch";
         [SerializeField] private LayerMask obstaclesMask;
         [SerializeField] private float capsuleHeightOnCrouch = 1f;
         [SerializeField] private float speed = 3f;
 
-        private float _defaultCapsuleHeight = 0;
-        private float _defaultCapsuleRadius = 0;
+        private float defaultCapsuleHeight = 0;
+        private float defaultCapsuleRadius = 0;
 
+
+        private int hashAnimState;
+        private void Awake()
+        {
+            hashAnimState = Animator.StringToHash(crouchAnimState);
+        }
         public override void OnStartState()
         {
             nameState.text = "Crouch";
-            _defaultCapsuleRadius = _capsule.GetCapsuleRadius();
-            _defaultCapsuleHeight = _capsule.GetCapsuleHeight();
+            defaultCapsuleRadius = _capsule.GetCapsuleRadius();
+            defaultCapsuleHeight = _capsule.GetCapsuleHeight();
             _capsule.SetCapsuleSize(capsuleHeightOnCrouch, _capsule.GetCapsuleRadius());
             _move.Move(new Vector3(0, 0.5f, 0));
-            SetAnimationState("Crouch.Free Crouch", 0.25f);
+            _animator.SetAnimationState(hashAnimState,0, 0.25f);
         }
 
         public override void OnStopState()
@@ -47,8 +53,8 @@ namespace LastKill
         {
             RaycastHit hit;
 
-            if (Physics.SphereCast(transform.position, _defaultCapsuleRadius, Vector3.up, out hit,
-                _defaultCapsuleHeight, obstaclesMask, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(transform.position, defaultCapsuleRadius, Vector3.up, out hit,
+                defaultCapsuleHeight, obstaclesMask, QueryTriggerInteraction.Ignore))
             {
                 if (hit.point.y - transform.position.y > capsuleHeightOnCrouch)
                     return true;

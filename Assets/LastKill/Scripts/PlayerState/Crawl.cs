@@ -5,41 +5,43 @@ namespace LastKill
 {
     public class Crawl : AbstractAbilityState
     {
-        [SerializeField] private float _crawlSpeed = 2f;
-        [SerializeField] private float _capsuleHeight = 0.5f;
+        [SerializeField] private float crawlSpeed = 2f;
+        [SerializeField] private float capsuleHeight = 0.5f;
 
         [Header("Parameters")]
-        [SerializeField] private LayerMask _obstaclesMask;
-        [SerializeField] private float _maxHeightToStartCrawl = 0.75f;
+        [SerializeField] private LayerMask obstaclesMask;
+        [SerializeField] private float maxHeightToStartCrawl = 0.75f;
 
         [Header("Animation States")]
-        [SerializeField] private string _startToCrawlAnimation = "Stand to Crawl";
-        [SerializeField] private string _stopToSdantAnimation = "Crawl to Stand";
+        [SerializeField] private string startToCrawlAnimation = "Stand to Crawl";
+        [SerializeField] private string stopToSdantAnimation = "Crawl to Stand";
 
-        private AudioController _audioController;
+        private int hashStartCrawl;
+        private int hashStopCrawl;
 
-        private bool _startingCrawl = false;
-        private bool _stoppingCrawl = false;
+        private bool startingCrawl = false;
+        private bool stoppingCrawl = false;
 
-        private float _defaultCapsuleRadius = 0;
+        private float defaultCapsuleRadius = 0;
 
 
         private void Awake()
         {
-            _audioController = GetComponent<AudioController>();
+            hashStartCrawl = Animator.StringToHash(startToCrawlAnimation);
+            hashStopCrawl = Animator.StringToHash(stopToSdantAnimation);
         }
         public override void OnStartState()
         {
             nameState.text = "Crawl";
-            _startingCrawl = true;
-            SetAnimationState(_startToCrawlAnimation);
+            startingCrawl = true;
+            _animator.SetAnimationState(hashStartCrawl,0);
         }
 
         public override void OnStopState()
         {
             // reset control variables
-            _startingCrawl = false;
-            _stoppingCrawl = false;
+            startingCrawl = false;
+            stoppingCrawl = false;
 
             _capsule.ResetCapsuleSize();
         }
@@ -55,10 +57,10 @@ namespace LastKill
         {
             RaycastHit hit;
 
-            if (Physics.SphereCast(transform.position, _defaultCapsuleRadius, Vector3.up, out hit,
-                _maxHeightToStartCrawl, _obstaclesMask, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(transform.position, defaultCapsuleRadius, Vector3.up, out hit,
+                maxHeightToStartCrawl, obstaclesMask, QueryTriggerInteraction.Ignore))
             {
-                if (hit.point.y - transform.position.y > _capsuleHeight)
+                if (hit.point.y - transform.position.y > capsuleHeight)
                     return true;
             }
 
@@ -67,30 +69,31 @@ namespace LastKill
 
         public override void UpdateState()
         {
-            if(_startingCrawl)
+            if(startingCrawl)
             {
-                if (_animator.IsInTransition(0)) return;
+                //if (_animator.IsInTransition(0)) return;
 
-                if (!_animator.GetCurrentAnimatorStateInfo(0).IsName(_startToCrawlAnimation))
-                    _startingCrawl = false;
-
-                return;
+                //if (!_animator.GetCurrentAnimatorStateInfo(0).IsName(startToCrawlAnimation))
+                //    startingCrawl = false;
+                if(!_animator.HasFinishedAnimation(startToCrawlAnimation,0))
+                    startingCrawl = false;
             }
-            if(_stoppingCrawl)
+            if(stoppingCrawl)
             {
-                if (_animator.IsInTransition(0)) return;
+                //if (_animator.IsInTransition(0)) return;
 
-                if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.85f)
+                //if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.85f)
+                if(_animator.HasFinishedAnimation(0))
                     StopState();
 
                 return;
             }
-            _move.Move(_input.Move, _crawlSpeed);
+            _move.Move(_input.Move, crawlSpeed);
 
             if(!_input.Crawl && !CanGetUp())
             {
-                SetAnimationState(_stopToSdantAnimation);
-                _stoppingCrawl = true;
+              _animator.SetAnimationState(hashStopCrawl,0);
+                stoppingCrawl = true;
                 _move.StopMovement();
             }
         }

@@ -26,7 +26,7 @@ namespace LastKill
             foreach (AbstractAbilityState state in PlayerAbilities) { }
             _animator = GetComponent<Animator>();
             _input = GetComponent<PlayerInput>();
-            _input.Died += OnDied;
+            _input.OnDied += OnDied;
 
 
         }

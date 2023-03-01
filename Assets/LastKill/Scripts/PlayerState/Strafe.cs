@@ -9,18 +9,15 @@ namespace LastKill
         [SerializeField] private float _strafeWalkSpeed = 2f;
 
         [Header("Animation")]
-        [SerializeField] private string _strafeAnimState = "Locomotion.Strafe";
-        [SerializeField] private string _horizontalAnimation = "Horizontal";
-        [SerializeField] private string _verticalAnimation = "Vertical";
+        [SerializeField] private string strafeAnimState = "Locomotion.Strafe";
 
         CameraController _cameraController;
 
-        private int _horizontal;
-        private int _vertical;
+        private int hashAnimState;
+       
         private void Awake()
         {
-            _horizontal = Animator.StringToHash(_horizontalAnimation);
-            _vertical = Animator.StringToHash(_verticalAnimation);
+            hashAnimState = Animator.StringToHash(strafeAnimState);
             _cameraController = GetComponent<CameraController>();
         }
 
@@ -28,7 +25,7 @@ namespace LastKill
         public override void OnStartState()
         {
             nameState.text = "Strafe";
-            SetAnimationState(_strafeAnimState);
+            _animator.SetAnimationState(hashAnimState, 0);
         }
 
         public override bool ReadyToStart()
@@ -42,8 +39,7 @@ namespace LastKill
             transform.rotation = Quaternion.Euler(0, _cameraController.MainCamera.transform.eulerAngles.y, 0);
 
             // update animator
-            _animator.SetFloat(_horizontal, _input.Move.x, 0.1f, Time.deltaTime);
-            _animator.SetFloat(_vertical, _input.Move.y, 0.1f, Time.deltaTime);
+            _animator.StrafeUpdate();
 
             if (!_input.Aim || !_move.IsGrounded())
                 StopState();

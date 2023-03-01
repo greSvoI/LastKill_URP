@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace LastKill
 {
-    public class AudioController : MonoBehaviour
+    public class AudioController : MonoBehaviour , IAudio
     {
-        [SerializeField] private FootStepCollection _stepAsphalt;
-        [SerializeField] private FootStepCollection _stepMetall;
+        [SerializeField] private FootStepCollection stepAsphalt;
+        [SerializeField] private FootStepCollection stepMetall;
         [SerializeField] private AudioSource voiceSource;
         [SerializeField] private AudioSource effectsSource;
         
@@ -18,13 +18,14 @@ namespace LastKill
         {
             _detection = GetComponent<DetectionController>();
         }
-        internal void PlayVoice(AudioClip clip)
+        public void PlayEffect(AudioClip clip)
         {
             if (effectsSource == null) return;
 
             effectsSource.clip = clip;
             effectsSource.Play();
         }
+
 
         private string NameTag()
         {
@@ -45,16 +46,17 @@ namespace LastKill
            switch(_detection.GroundLayer)
             {
                 case 6: 
-                       effectsSource.PlayOneShot(_stepAsphalt.walkSounds[UnityEngine.Random.Range(0,_stepAsphalt.walkSounds.Count)]);
+                       effectsSource.PlayOneShot(stepAsphalt.walkSounds[UnityEngine.Random.Range(0,stepAsphalt.walkSounds.Count)]);
                        break;
 
                 case 7:
-                       effectsSource.PlayOneShot(_stepMetall.walkSounds[UnityEngine.Random.Range(0, _stepMetall.walkSounds.Count)]);
+                       effectsSource.PlayOneShot(stepMetall.walkSounds[UnityEngine.Random.Range(0, stepMetall.walkSounds.Count)]);
                        break;
 
             }
         }
-      
+
+        
     }
 
 }

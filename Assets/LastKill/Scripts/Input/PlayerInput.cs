@@ -18,13 +18,14 @@ namespace LastKill
 		[SerializeField] private bool _aim;
 		[SerializeField] private bool _strafe;
 		[SerializeField] private bool _crawl;
+		[SerializeField] private bool reload;
 		[SerializeField] private float _moveAmount;
 		[SerializeField] private int _currentWeapon;
 		[SerializeField] private int _lastWeapon;
 
-		public Action Died;
-		public Action SelectWeapon;
-
+		public Action OnDied;
+		public Action OnSelectWeapon;
+		public Action OnReload;
 
 		//hold button or single click
 		[SerializeField] public bool HoldButton;
@@ -38,6 +39,7 @@ namespace LastKill
 		public bool Fire => _fire;
 		public bool Crawl => _crawl;
 		public bool Aim => _aim;
+		public bool Reload => reload;
 		public float MoveAmount => _moveAmount;
 		public int CurrentWeapon => _currentWeapon;
 
@@ -69,6 +71,13 @@ namespace LastKill
 
 			inputActions.Player.Roll.performed += ctx => _roll = ctx.ReadValueAsButton();
 			inputActions.Player.Roll.canceled += ctx => _roll = ctx.ReadValueAsButton();
+
+			inputActions.Player.Reload.performed += ctx => {
+				OnReload?.Invoke();
+			};
+
+			//inputActions.Player.Reload.performed += ctx => reload = ctx.ReadValueAsButton();
+			//inputActions.Player.Reload.canceled += ctx => reload = ctx.ReadValueAsButton();
 
 			//inputActions.Player.Aim.performed += ctx =>
 			//{
@@ -163,7 +172,7 @@ namespace LastKill
             {
                 _currentWeapon = 0;
             }
-			SelectWeapon?.Invoke();
+			OnSelectWeapon?.Invoke();
         }
 		
 

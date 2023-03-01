@@ -16,14 +16,14 @@ namespace LastKill
         [Header("Animation")]
         [SerializeField] private string shortClimbAnimState = "Climb Up";
 
-        //private CastDebug _debug;
+        private int hashAnimState;
+        private RaycastHit targetHit;
+        private bool hasMatchTarget;
 
-        private RaycastHit _targetHit;
-        private bool _hasMatchTarget;
 
         private void Awake()
         {
-
+            hashAnimState = Animator.StringToHash(shortClimbAnimState);
         }
 
         public override bool ReadyToStart()
@@ -38,26 +38,28 @@ namespace LastKill
             _move.ApplyRootMotion(Vector3.one);
             _move.StopMovement();
 
-            _animator.CrossFadeInFixedTime(shortClimbAnimState, 0.1f);
-            _hasMatchTarget = false;
+            _animator.SetAnimationState(hashAnimState,0,0.1f);
+            hasMatchTarget = false;
         }
 
 
         public override void UpdateState()
         {
-            var state = _animator.GetCurrentAnimatorStateInfo(0);
+            var state = _animator.GetCurrentStateInfo(0);
 
-            if (_animator.IsInTransition(0) || !state.IsName(shortClimbAnimState)) return;
+            //if (_animator.IsInTransition(0) || !state.IsName(shortClimbAnimState)) return;
+
+            if (!_animator.HasFinishedAnimation(shortClimbAnimState, 0)) return;
 
             var normalizedTime = Mathf.Repeat(state.normalizedTime, 1f);
-            if (!_animator.isMatchingTarget && !_hasMatchTarget)
+            if (_animator.isMatchTarget() && !hasMatchTarget)
             {
                 // calculate target position
-                Vector3 targetPosition = _targetHit.point - _targetHit.normal * _capsule.GetCapsuleRadius() * 0.5f;
+                Vector3 targetPosition = targetHit.point - targetHit.normal * _capsule.GetCapsuleRadius() * 0.5f;
                 _animator.MatchTarget(targetPosition, Quaternion.identity, AvatarTarget.Root,
                     new MatchTargetWeightMask(Vector3.one, 0f), 0.15f, 0.42f);
 
-                _hasMatchTarget = true;
+                hasMatchTarget = true;
             }
 
             if (normalizedTime > 0.95f)
@@ -71,7 +73,11 @@ namespace LastKill
             _move.StopRootMotion();
             _move.StopMovement();
         }
-
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(targetHit.point, 0.1f);
+        }
         private bool HasShortClimb()
         {
             Vector3 overlapCenter = transform.position + Vector3.up * overlapRadius;
@@ -94,12 +100,8 @@ namespace LastKill
                     if (Physics.SphereCast(sphereStart, capsuleCastRadius, Vector3.down, out RaycastHit topHit, maxClimbHeight - minClimbHeight,
                         shortClimbMask, QueryTriggerInteraction.Collide))
                     {
-                        _targetHit = topHit;
-                        _targetHit.normal = Vector3.Scale(forwardHit.normal, new Vector3(1, 0, 1)).normalized;
-
-                        //if (_debug)
-                        //    _debug.DrawSphere(_targetHit.point, 0.1f, Color.red, 3f);
-
+                        targetHit = topHit;
+                        targetHit.normal = Vector3.Scale(forwardHit.normal, new Vector3(1, 0, 1)).normalized;
                         return true;
                     }
                 }

@@ -71,7 +71,7 @@ namespace LastKill
 			_cameraController = GetComponent<CameraController>();
 			_input = GetComponent<PlayerInput>();
 			_detectionController = GetComponent<DetectionController>();
-			_input.Died += OnDied;
+			_input.OnDied += OnDied;
 
 
 			_initialCapsuleHeight = _controller.height;
@@ -246,7 +246,7 @@ namespace LastKill
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
 			float speedOffset = 0.1f;
-			float inputMagnitude = moveInput.magnitude; // _input.analogMovement ? _input.move.magnitude : 1f;
+			float inputMagnitude = moveInput.magnitude; // input.analogMovement ? input.move.magnitude : 1f;
 
 			if (inputMagnitude > 1)
 				inputMagnitude = 1f;

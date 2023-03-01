@@ -163,7 +163,7 @@ namespace StarterAssets
          
 			}
 
-            //if(_input.roll && !_animator.GetBool("Roll"))
+            //if(input.roll && !_animator.GetBool("Roll"))
             //{
             //    Roll();
             //}

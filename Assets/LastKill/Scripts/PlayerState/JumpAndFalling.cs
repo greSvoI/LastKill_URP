@@ -25,58 +25,58 @@ namespace LastKill
         [SerializeField] private float heightForKillOnLand = 7f;
         [Header("Sound FX")]
         [SerializeField] private AudioClip jumpEffect;
-        [SerializeField] private AudioClip _hardLandClip;
-        [SerializeField] private AudioClip _softLandClip;
-        [SerializeField] private AudioClip _deathClip;
+        [SerializeField] private AudioClip hardLandClip;
+        [SerializeField] private AudioClip softLandClip;
+        [SerializeField] private AudioClip deathClip;
+
+        //???
         [Header("Event")]
         [SerializeField] private UnityEvent OnLanded = null;
 
         CameraController _cameraController;
-        AudioController _audioController;
 
-        private float _startSpeed;
-        private Vector2 _startInput;
+        private float startSpeed;
+        private Vector2 startInput;
        
-        private Vector2 _inputVel;
-        private float _angleVel;
+        private Vector2 inputVel;
+        private float angleVel;
 
-        private float _targetRotation;
+        private float targetRotation;
 
         // vars to control landing
-        private float _highestPosition = 0;
-        private bool _landing = false;
+        private float highestPosition = 0;
+        private bool landing = false;
 
         private void Awake()
         {
             _cameraController = GetComponent<CameraController>();
-            _audioController = GetComponent<AudioController>();
         }
         public override void OnStartState()
         {
             
             nameState.text = "JumpAndFalling";
 
-            _startInput = _input.Move;
-            _targetRotation = _cameraController.MainCamera.eulerAngles.y;
+            startInput = _input.Move;
+            targetRotation = _cameraController.MainCamera.eulerAngles.y;
 
             if (_input.Jump && _move.IsGrounded())
                 PerformJump();
             else
             {
-                SetAnimationState(animFallState, 0.25f);
-                _startSpeed = Vector3.Scale(_move.GetVelocity(), new Vector3(1, 0, 1)).magnitude;
+                _animator.SetAnimationState(animFallState, 0,0.25f);
+                startSpeed = Vector3.Scale(_move.GetVelocity(), new Vector3(1, 0, 1)).magnitude;
 
-                  _startInput.x = Vector3.Dot(_cameraController.MainCamera.right, transform.forward);
-                  _startInput.y = Vector3.Dot(Vector3.Scale(_cameraController.MainCamera.forward, new Vector3(1, 0, 1)), transform.forward);
+                  startInput.x = Vector3.Dot(_cameraController.MainCamera.right, transform.forward);
+                  startInput.y = Vector3.Dot(Vector3.Scale(_cameraController.MainCamera.forward, new Vector3(1, 0, 1)), transform.forward);
 
                 //_startInput = _cameraController.GetCameraDirection();
 
-                if (_startSpeed > 3.5f)
-                    _startSpeed = speedOnAir;
+                if (startSpeed > 3.5f)
+                    startSpeed = speedOnAir;
             }
 
-            _highestPosition = transform.position.y;
-            _landing = false;
+            highestPosition = transform.position.y;
+            landing = false;
 
         }
 
@@ -86,14 +86,13 @@ namespace LastKill
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * _move.GetGravity());
 
             _move.SetVelocity(velocity);
-            _animator.CrossFadeInFixedTime(animJumpState, 0.1f);
-            _startSpeed = speedOnAir;
+            _animator.SetAnimationState(animJumpState, 0,0.1f);
+            startSpeed = speedOnAir;
 
-            if (_startInput.magnitude > 0.1f)
-                _startInput.Normalize();
+            if (startInput.magnitude > 0.1f)
+                startInput.Normalize();
 
-            if (_audioController)
-                _audioController.PlayVoice(jumpEffect);
+                _audio.PlayEffect(jumpEffect);
         }
 
         public override bool ReadyToStart()
@@ -103,13 +102,13 @@ namespace LastKill
 
         public override void UpdateState()
         {
-            if (_landing)
+            if (landing)
             {
                 // apply root motion
                 _move.ApplyRootMotion(Vector3.one, false);
 
                 // wait animation finish
-                if (HasFinishedAnimation(playAnimState))
+                if (_animator.HasFinishedAnimation(playAnimState,0))
                     StopState();
 
                 return;
@@ -117,39 +116,40 @@ namespace LastKill
 
             if (_move.IsGrounded())
             {
-                if (_highestPosition - transform.position.y >= heightForKillOnLand)
+                if (highestPosition - transform.position.y >= heightForKillOnLand)
                 {
-                    LandingSoft(true, animDeathState, _deathClip);
-                    _input.Died?.Invoke(); 
+                    LandingSoft(true, animDeathState, deathClip);
+                    _input.OnDied?.Invoke(); 
                     return;
                 }
-                else if (_highestPosition - transform.position.y >= heightForHardLand)
+                else if (highestPosition - transform.position.y >= heightForHardLand)
                 {
-                    LandingSoft(true, animHardLandState, _hardLandClip);
+                    LandingSoft(true, animHardLandState, hardLandClip);
                     return;
                 }
-                else if(_highestPosition - transform.position.y >= heightForSoftLand)
+                else if(highestPosition - transform.position.y >= heightForSoftLand)
                 {
-                    LandingSoft(true, animSoftLandState, _softLandClip);
+                    LandingSoft(true, animSoftLandState, softLandClip);
                     return;
                 }
                 StopState();
                 
             }
 
-            if (transform.position.y > _highestPosition)
-                _highestPosition = transform.position.y;
+            if (transform.position.y > highestPosition)
+                highestPosition = transform.position.y;
 
         }
 
         private void LandingSoft(bool landing, string animState, AudioClip clipLanding)
         {
-            _landing = landing;
+            this.landing = landing;
             playAnimState = animState;
-            SetAnimationState(playAnimState, 0.02f);
+           _animator.SetAnimationState(playAnimState,0,0.02f);
+            _audio.PlayEffect(clipLanding);
+
             // call event
             OnLanded.Invoke();
-            _audioController.PlayVoice(clipLanding);
         }
 
         private void RotateCharacter()
@@ -158,8 +158,8 @@ namespace LastKill
             // if there is a move input rotate player when the player is moving
             if (_input.Move != Vector2.zero)
             {
-                _targetRotation = Mathf.Atan2(_startInput.x, _startInput.y) * Mathf.Rad2Deg + _cameraController.MainCamera.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _angleVel, airControl);
+                targetRotation = Mathf.Atan2(startInput.x, startInput.y) * Mathf.Rad2Deg + _cameraController.MainCamera.eulerAngles.y;
+                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref angleVel, airControl);
 
                 // rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
@@ -171,11 +171,11 @@ namespace LastKill
         {
             base.OnStopState();
 
-            if (_move.IsGrounded() && !_landing && _move.GetVelocity().y < -3f)
+            if (_move.IsGrounded() && !landing && _move.GetVelocity().y < -3f)
                 OnLanded.Invoke();
 
-            _landing = false;
-            _highestPosition = 0;
+            landing = false;
+            highestPosition = 0;
             _move.StopRootMotion();
         }
 

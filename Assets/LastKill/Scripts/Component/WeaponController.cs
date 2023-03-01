@@ -12,9 +12,6 @@ namespace LastKill
         [SerializeField] private string animWeaponID_2;
         [SerializeField] private string animWeaponID_3;
 
-        public List<GameObject> spineWeapons;
-        public List<GameObject> handWeapons;
-
         private int hashWeaponID;
         private int hashDrawWeapon;
 
@@ -28,16 +25,34 @@ namespace LastKill
 
         private bool hasAnimator;
 
+        public List<GameObject> spineWeapons;
+        public List<GameObject> handWeapons;
+
         private void Awake()
         {
             _input = GetComponent<PlayerInput>();
             _animator = GetComponent<Animator>();
-            _input.SelectWeapon += SelectWeapon;
+            _input.OnSelectWeapon += SelectWeapon;
+            _input.OnReload += Reload;
         }
+
+       
+
         private void Start()
         {
             hasAnimator = TryGetComponent(out _animator);
             AssignAnimationIDs();
+        }
+        private void Update()
+        {
+           
+        }
+        private void Reload()
+        {
+            if (withWeapon && !HasFinishedAnimation("Reload"))
+            {
+                SetAnimationState("Reload", 0.1f);
+            }
         }
         private void SelectWeapon()
         {
@@ -55,14 +70,6 @@ namespace LastKill
             _animator.SetInteger(hashWeaponID, id);
             _animator.SetBool(hashDrawWeapon,true);
             withWeapon = true;
-        }
-        private void ActionWeaponHand(int id, bool state)
-        {
-            handWeapons[id - 1].SetActive(state);
-        }
-        private void ActionWeaponSpine(int id,bool state)
-        {
-            spineWeapons[id - 1].SetActive(state);
         }
         private void ChangeWeapon(int hand,int spine,bool _hand,bool _spine)
         {
@@ -119,8 +126,10 @@ namespace LastKill
 
         protected void SetAnimationState(string stateName, float transitionDuration = 0.1f)
         {
-            if (_animator.HasState(0, Animator.StringToHash(stateName)))
-                _animator.CrossFadeInFixedTime(stateName, transitionDuration, 0);
+            if (_animator.HasState(2, Animator.StringToHash(stateName)))
+            {
+                _animator.CrossFadeInFixedTime(stateName, transitionDuration, 2);
+            }
         }
         protected bool HasFinishedAnimation(string state)
         {
