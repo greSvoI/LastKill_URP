@@ -9,6 +9,8 @@ namespace LastKill
     {
         [SerializeField] private FootStepCollection stepAsphalt;
         [SerializeField] private FootStepCollection stepMetall;
+        [SerializeField] private AudioClip rollFx;
+
         [SerializeField] private AudioSource voiceSource;
         [SerializeField] private AudioSource effectsSource;
         
@@ -54,6 +56,10 @@ namespace LastKill
                        break;
 
             }
+        }
+        private void RollEvent()
+        {
+            effectsSource.PlayOneShot(rollFx);
         }
 
         

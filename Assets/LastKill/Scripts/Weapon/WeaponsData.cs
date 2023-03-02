@@ -7,11 +7,15 @@ namespace LastKill
     {
         public GameObject weapon;
         public GameObject clip;
-        public Transform rightHand;
-        public Transform leftHand;
+        public Transform transform;
+        public Transform rightHandIK;
+        public Transform leftHandIK;
         public AudioClip fire;
         public AudioClip reload;
         public AudioClip empty;
+        public float bodyPoseID;
+        public int reloadID;
+        public bool onShoulders;
         public int damage;
         public int bulletCount;
         public int bulletClip;

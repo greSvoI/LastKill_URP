@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4f130cb1a561c4b800e02d75b0ed36, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 172140, guid: 4650678befaab604ab35e7d62c7fc5b9, type: 3}
+  clip: {fileID: 0}
+  transform: {fileID: 0}
+  rightHandIK: {fileID: 0}
+  leftHandIK: {fileID: 0}
+  fire: {fileID: 0}
+  reload: {fileID: 0}
+  empty: {fileID: 0}
+  bodyPoseID: 2
+  reloadID: 2
+  onShoulders: 1
+  damage: 0
+  bulletCount: 0
+  bulletClip: 0

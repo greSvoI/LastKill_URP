@@ -166,12 +166,12 @@ namespace LastKill
 
         private void SetWeapon(InputAction.CallbackContext obj)
         {
-			_lastWeapon = _currentWeapon;
+			//_lastWeapon = _currentWeapon;
 			int.TryParse(obj.control.displayName,out _currentWeapon);
-            if (_lastWeapon == _currentWeapon)
-            {
-                _currentWeapon = 0;
-            }
+            //if (_lastWeapon == _currentWeapon)
+            //{
+            //    _currentWeapon = 0;
+            //}
 			OnSelectWeapon?.Invoke();
         }
 		

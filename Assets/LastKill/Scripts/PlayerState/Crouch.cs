@@ -8,7 +8,7 @@ namespace LastKill
     [DisallowMultipleComponent]
     public class Crouch : AbstractAbilityState
     {
-        [SerializeField] private string crouchAnimState = "Crouch.Free Crouch";
+        [SerializeField] private string crouchAnimState = "Crouch";
         [SerializeField] private LayerMask obstaclesMask;
         [SerializeField] private float capsuleHeightOnCrouch = 1f;
         [SerializeField] private float speed = 3f;
@@ -39,14 +39,16 @@ namespace LastKill
 
         public override bool ReadyToStart()
         {
-            return _move.IsGrounded() && _input.Crouch;
+            return _move.IsGrounded() && _input.Crouch && !_animator.Animator.GetBool("isStrafe");
         }
 
         public override void UpdateState()
         {
             _move.Move(_input.Move, speed);
 
-            if (!_input.Crouch && !ForceCrouchByHeight())
+            _animator.Animator.SetFloat("MoveAmount", _input.MoveAmount);
+
+            if (!_input.Crouch && !ForceCrouchByHeight() && !_animator.Animator.GetBool("isStrafe"))
                 StopState();
         }
         private bool ForceCrouchByHeight()

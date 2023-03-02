@@ -8,7 +8,7 @@ namespace LastKill
     {
         [SerializeField] private float walkSpeed = 2f;
         [SerializeField] private float sprintSpeed = 5f;
-        [SerializeField] private string animatorBlendState = "Locomotion.Free Movement";
+        [SerializeField] private string animatorBlendState = "Locomotion";
 
         private int hashAnimState;
 
@@ -27,7 +27,7 @@ namespace LastKill
             if(_input.Move.magnitude < 0.1f)
             {
                 // reset movement parameters
-               // _animator.SetFloat(animatorIdSpeed, 0f, 0f, Time.deltaTime);
+                _animator.Animator.SetFloat(animatorIdSpeed, 0f, 0f, Time.deltaTime);
             }
             
         }

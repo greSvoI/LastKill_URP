@@ -9,8 +9,9 @@ namespace LastKill
         [SerializeField] private float _strafeWalkSpeed = 2f;
 
         [Header("Animation")]
-        [SerializeField] private string strafeAnimState = "Locomotion.Strafe";
+        [SerializeField] private string strafeAnimState = "Strafe";
         [SerializeField] private string animatorParam = "Strafe";
+        [SerializeField] private int layerIndex;
 
         CameraController _cameraController;
 
@@ -22,25 +23,31 @@ namespace LastKill
             hashAnimState = Animator.StringToHash(strafeAnimState);
             hashAnimBool = Animator.StringToHash(animatorParam);
             _cameraController = GetComponent<CameraController>();
+           
         }
 
 
         public override void OnStartState()
         {
             nameState.text = "Strafe";
+            //layerIndex = _animator.Animator.GetLayerIndex("UnderBody");
+            _animator.Animator.SetBool("isStrafe", true);
             _animator.Animator.SetBool(hashAnimBool, true);
-            _animator.SetAnimationState(hashAnimState, 0);
+            _animator.SetAnimationState(hashAnimState,0);
+            
          
         }
 
         public override bool ReadyToStart()
         {
-            return _move.IsGrounded() && _weapon.WithWeapon;
+            return _move.IsGrounded() && _animator.Animator.GetBool("isAiming") || _move.IsGrounded() && _input.Fire;
         }
 
         public override void UpdateState()
         {
-            _move.Move(_input.Move, _strafeWalkSpeed, false);
+
+            _animator.Animator.SetBool("isCrouch", _input.Crouch);
+            _move.Move(_input.Move,_input.Crouch ? 1f: _strafeWalkSpeed, false);
             transform.rotation = Quaternion.Euler(0, _cameraController.MainCamera.transform.eulerAngles.y, 0);
 
             // update animator
@@ -51,6 +58,11 @@ namespace LastKill
                 _animator.Animator.SetBool(hashAnimBool, true);
                 StopState();
             }
+        }
+        public override void OnStopState()
+        {
+            base.OnStopState();
+            _animator.Animator.SetBool("isStrafe", false);
         }
     }
 }
