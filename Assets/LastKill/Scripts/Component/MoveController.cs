@@ -51,14 +51,12 @@ namespace LastKill
 		private int _animIDSpeed;
 		private int _animIDMotionSpeed;
 
-		private Animator _animator;
 		private CharacterController _controller;
-		private CameraController _cameraController;
-		private GameObject _mainCamera;
 		private PlayerInput _input;
 		private DetectionController _detectionController;
+		private IAnimator _animator;
+		private iCamera _camera;
 
-		private bool _hasAnimator;
 
 		// controls character velocity
 		[SerializeField] private  Vector3 _velocity;
@@ -66,13 +64,12 @@ namespace LastKill
 
 		private void Awake()
 		{
-			_mainCamera = Camera.main.gameObject;
+			_camera = GetComponent<iCamera>();
 			_controller = GetComponent<CharacterController>();
-			_cameraController = GetComponent<CameraController>();
 			_input = GetComponent<PlayerInput>();
 			_detectionController = GetComponent<DetectionController>();
+			_animator = GetComponent<IAnimator>();
 			_input.OnDied += OnDied;
-
 
 			_initialCapsuleHeight = _controller.height;
 			_initialCapsuleRadius = _controller.radius;
@@ -82,7 +79,7 @@ namespace LastKill
 
 		private void Start()
 		{
-			_hasAnimator = TryGetComponent(out _animator);
+			//_hasAnimator = TryGetComponent(out _animator);
 			AssignAnimationIDs();
 		
 		}
@@ -104,7 +101,7 @@ namespace LastKill
 			{
 				_speed = 0;
 				_animationBlend = 0;
-				_animator.SetFloat(_animIDSpeed, 0);
+				_animator.Animator.SetFloat(_animIDSpeed, 0);
 				_timeoutToResetVars = 0;
 			}
 			else
@@ -150,11 +147,11 @@ namespace LastKill
 			if (!_useRootMotion) return;
 
 			if (_controller.enabled)
-				_controller.Move(_animator.deltaPosition);
+				_controller.Move(_animator.Animator.deltaPosition);
 			else
-				_animator.ApplyBuiltinRootMotion();
+				_animator.Animator.ApplyBuiltinRootMotion();
 
-			transform.rotation *= _animator.deltaRotation;
+			transform.rotation *= _animator.Animator.deltaRotation;
 		}
 
 		private void AssignAnimationIDs()
@@ -177,19 +174,6 @@ namespace LastKill
 
             Depenetrate();
         }
-		private void OnDrawGizmosSelected()
-		{
-			//Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
-			//Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
-
-			//if (Grounded) Gizmos.color = transparentGreen;
-			//else Gizmos.color = transparentRed;
-
-			//// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-			//Gizmos.DrawSphere(
-			//	new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
-			//	GroundedRadius);
-		}
 		private void Depenetrate()
 		{
 			if (!_controller.enabled) return;
@@ -234,7 +218,7 @@ namespace LastKill
 
 		public void Move(Vector2 moveInput, float targetSpeed, bool rotateCharacter = true)
 		{
-			Move(moveInput, targetSpeed, _mainCamera.transform.rotation, rotateCharacter);
+			Move(moveInput, targetSpeed, _camera.GetTransform.transform.rotation, rotateCharacter);
 		}
         public void Move(Vector2 moveInput, float targetSpeed, Quaternion cameraRotation, bool rotateCharacter = true)
 		{
@@ -283,15 +267,14 @@ namespace LastKill
 			}
 
 			// update animator if using character
-			if (_hasAnimator)
-			{
+
+			
 				//speed did not go beyond
 				//affects animation events
 				if (_animationBlend < 0.2f && _input.Move == Vector2.zero) _animationBlend = 0f;
 
-				_animator.SetFloat(_animIDSpeed, _animationBlend);
-				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-			}
+				_animator.Animator.SetFloat(_animIDSpeed, _animationBlend);
+				_animator.Animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
 
 			Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 			_velocity = targetDirection.normalized * _speed + new Vector3(0.0f, _velocity.y, 0.0f);
@@ -426,14 +409,14 @@ namespace LastKill
 			_velocity = Vector3.zero;
 			_speed = 0;
 
-			_animator.SetFloat(_animIDSpeed, 0);
-			_animator.SetFloat(_animIDMotionSpeed, 0);
+			_animator.Animator.SetFloat(_animIDSpeed, 0);
+			_animator.Animator.SetFloat(_animIDMotionSpeed, 0);
 		}
 
 		public Vector3 GetRelativeInput(Vector2 input)
 		{
-			Vector3 relative = _mainCamera.transform.right * input.x +
-				Vector3.Scale(_mainCamera.transform.forward, new Vector3(1, 0, 1)) * input.y;
+			Vector3 relative = _camera.GetTransform.transform.right * input.x +
+				Vector3.Scale(_camera.GetTransform.transform.forward, new Vector3(1, 0, 1)) * input.y;
 
 			return relative;
 		}

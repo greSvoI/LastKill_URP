@@ -5,6 +5,7 @@ namespace LastKill
 {
     public class Crawl : AbstractAbilityState
     {
+        [Header("Speed")]
         [SerializeField] private float crawlSpeed = 2f;
         [SerializeField] private float capsuleHeight = 0.5f;
 
@@ -32,7 +33,6 @@ namespace LastKill
         }
         public override void OnStartState()
         {
-            nameState.text = "Crawl";
             startingCrawl = true;
             _animator.SetAnimationState(hashStartCrawl,0);
         }
@@ -63,7 +63,6 @@ namespace LastKill
                 if (hit.point.y - transform.position.y > capsuleHeight)
                     return true;
             }
-
             return false;
         }
 
@@ -71,21 +70,13 @@ namespace LastKill
         {
             if(startingCrawl)
             {
-                //if (_animator.IsInTransition(0)) return;
-
-                //if (!_animator.GetCurrentAnimatorStateInfo(0).IsName(startToCrawlAnimation))
-                //    startingCrawl = false;
                 if(!_animator.HasFinishedAnimation(startToCrawlAnimation,0))
                     startingCrawl = false;
             }
             if(stoppingCrawl)
             {
-                //if (_animator.IsInTransition(0)) return;
-
-                //if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.85f)
                 if(_animator.HasFinishedAnimation(0))
                     StopState();
-
                 return;
             }
             _move.Move(_input.Move, crawlSpeed);

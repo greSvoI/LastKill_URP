@@ -54,7 +54,6 @@ namespace LastKill
         public override void OnStartState()
         {
             
-            nameState.text = "JumpAndFalling";
 
             startInput = _input.Move;
             targetRotation = _cameraController.MainCamera.eulerAngles.y;

@@ -3,7 +3,7 @@ using Cinemachine;
 
 namespace LastKill
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : MonoBehaviour  ,iCamera
     {
 		[SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
 		[SerializeField] private Transform _mainCamera;
@@ -28,6 +28,8 @@ namespace LastKill
 		public float CameraAngleOverride = 0.0f;
 		public float angleFire = 0f;
 
+		public Transform GetTransform => _mainCamera.transform;
+
 		PlayerInput _input;
 		[SerializeField] private LayerMask layerMask;
 		[SerializeField] private Transform debugTransform;
@@ -35,7 +37,6 @@ namespace LastKill
 		private void Start()
 		{
 			_input = GetComponent<PlayerInput>();
-			_mainCamera = Camera.main.transform;
 		}
 		public Transform MainCamera => _mainCamera;
         //public float lookAngle;
@@ -116,5 +117,8 @@ namespace LastKill
 			if (lfAngle > 360f) lfAngle -= 360f;
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
 		}
-	}
+
+       
+        
+    }
 }

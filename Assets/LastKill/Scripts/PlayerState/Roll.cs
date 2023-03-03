@@ -22,16 +22,14 @@ namespace LastKill
         // direction and rotation
         private Vector3 rollDirection = Vector3.forward;
         private float targetRotation = 0;
-        private Transform _camera = null;
 
 
         private void Awake()
         {
-            _camera = Camera.main.transform;   
+  
         }
         public override void OnStartState()
         {
-            nameState.text = "Roll";
 
             _animator.SetAnimationState(_weapon.WithWeapon ? aimedRollAnimation : freeRollAnimation, 0, 0.1f);
 
@@ -44,7 +42,7 @@ namespace LastKill
             {
                 // normalise input direction
                 Vector3 moveDirection = new Vector3(_input.Move.x, 0.0f, _input.Move.y).normalized;
-                targetRotation = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg + _camera.transform.eulerAngles.y;
+                targetRotation = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg +  _camera.GetTransform.eulerAngles.y;
                 rollDirection = Quaternion.Euler(0.0f, targetRotation, 0.0f) * Vector3.forward;
             }
 

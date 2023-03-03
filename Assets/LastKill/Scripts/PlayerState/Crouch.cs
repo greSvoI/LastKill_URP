@@ -24,7 +24,6 @@ namespace LastKill
         }
         public override void OnStartState()
         {
-            nameState.text = "Crouch";
             defaultCapsuleRadius = _capsule.GetCapsuleRadius();
             defaultCapsuleHeight = _capsule.GetCapsuleHeight();
             _capsule.SetCapsuleSize(capsuleHeightOnCrouch, _capsule.GetCapsuleRadius());

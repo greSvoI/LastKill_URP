@@ -6,50 +6,39 @@ namespace LastKill
 {
     public class Strafe : AbstractAbilityState
     {
+        [Header("Speed")]
         [SerializeField] private float _strafeWalkSpeed = 2f;
 
-        [Header("Animation")]
-        [SerializeField] private string strafeAnimState = "Strafe";
-        [SerializeField] private string animatorParam = "isStrafe";
+        [Header("Animation Parametrs")]
+        [SerializeField] private string s_strafeAnimState = "Strafe";
+        [SerializeField] private string s_strafeAnimBool = "isStrafe";
         [SerializeField] private int layerIndex;
-
-        CameraController _cameraController;
 
         private int hashAnimBool;
         private int hashAnimState;
-       
+
         private void Awake()
         {
-            hashAnimState = Animator.StringToHash(strafeAnimState);
-            hashAnimBool = Animator.StringToHash(animatorParam);
-            _cameraController = GetComponent<CameraController>();
-           
+            hashAnimState = Animator.StringToHash(s_strafeAnimState);
+            hashAnimBool = Animator.StringToHash(s_strafeAnimBool);
         }
-
-
         public override void OnStartState()
         {
-            nameState.text = "Strafe";
-            _animator.Animator.SetBool(animatorParam, true);
             _animator.Animator.SetBool(hashAnimBool, true);
             _animator.SetAnimationState(hashAnimState,0);
-            
-         
         }
 
         public override bool ReadyToStart()
         {
-            return _move.IsGrounded() && _animator.Animator.GetBool("isAiming") || _move.IsGrounded() && _input.Fire;
+            return _move.IsGrounded() && _animator.isAiming;
         }
 
         public override void UpdateState()
         {
-
-            _animator.Animator.SetBool("isCrouch", _input.Crouch);
             _move.Move(_input.Move,_input.Crouch ? 1f: _strafeWalkSpeed, false);
-            transform.rotation = Quaternion.Euler(0, _cameraController.MainCamera.transform.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Euler(0, _camera.GetTransform.transform.eulerAngles.y, 0);
 
-            // update animator
+            // update to animator controller
             _animator.StrafeUpdate();
 
             if (!_weapon.WithWeapon || !_move.IsGrounded())
@@ -61,7 +50,7 @@ namespace LastKill
         public override void OnStopState()
         {
             base.OnStopState();
-            _animator.Animator.SetBool("isStrafe", false);
+            _animator.Animator.SetBool(hashAnimBool, false);
         }
     }
 }
