@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace LastKill
 {
     public class CameraController : MonoBehaviour
     {
+		[SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
 		[SerializeField] private Transform _mainCamera;
 		[SerializeField] private Transform _cameraRoot;
-		[SerializeField] private float _sensivity;
+		public float Sensitivity;
+		public float SensitivityNormal;
 
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
+
 		public GameObject CinemachineCameraTarget;
 		public float cinemachineTargetYaw;
 		public float cinemachineTargetPitch;
@@ -27,6 +29,8 @@ namespace LastKill
 		public float angleFire = 0f;
 
 		PlayerInput _input;
+		[SerializeField] private LayerMask layerMask;
+		[SerializeField] private Transform debugTransform;
 
 		private void Start()
 		{
@@ -55,14 +59,34 @@ namespace LastKill
         //	targetRotation = Quaternion.Euler(rotation);
         //	_cameraRoot.rotation = targetRotation;
         //}
+        private void Update()
+        {
+            if(_input.Aim)
+			{
+				aimVirtualCamera.gameObject.SetActive(true);
+			}
+			else
+            {
+				aimVirtualCamera.gameObject.SetActive(false);
+            }
+			Vector2 screenPoint = new Vector2(Screen.width / 2f, Screen.height / 2);
+
+			Ray ray = Camera.main.ScreenPointToRay(screenPoint);
+			if(Physics.Raycast(ray ,out RaycastHit hit,200f,layerMask))
+            {
+				debugTransform.position = hit.point;
+            }
+
+
+        }
         private void LateUpdate()
         {
 			FreeMovementCamera();
         }
         public void FreeMovementCamera()
 		{
-			cinemachineTargetYaw += _input.Look.x * _sensivity;
-			cinemachineTargetPitch += _input.Look.y * _sensivity;
+			cinemachineTargetYaw += _input.Look.x * Sensitivity;
+			cinemachineTargetPitch += _input.Look.y * Sensitivity;
 
 			cinemachineTargetYaw = ClampAngle(cinemachineTargetYaw, float.MinValue, float.MaxValue);
 			cinemachineTargetPitch = ClampAngle(cinemachineTargetPitch, BottomClamp, TopClamp);
@@ -70,6 +94,10 @@ namespace LastKill
 			CinemachineCameraTarget.transform.rotation = Quaternion.Euler(cinemachineTargetPitch + CameraAngleOverride,
 				cinemachineTargetYaw, angleFire);
 		}
+		public void SetSensitivity(float sensetivity)
+        {
+			Sensitivity = sensetivity;
+        }
 
 
 		public Vector3 GetCameraDirection()

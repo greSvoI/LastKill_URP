@@ -65,8 +65,9 @@ namespace LastKill
         {
             _animator.SetFloat(hashHorizontal, _input.Move.x, 0.1f, Time.deltaTime);
             _animator.SetFloat(hashVertical, _input.Move.y, 0.1f, Time.deltaTime);
-
-            _animator.SetFloat("MoveAmount", _input.MoveAmount /2);
+            float moveAmount = _input.MoveAmount;
+            if (moveAmount < 0.1f) moveAmount = 0f;
+            _animator.SetFloat("MoveAmount", moveAmount, 0.1f,Time.deltaTime);
         }
     }
 }

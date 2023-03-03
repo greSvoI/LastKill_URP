@@ -10,7 +10,7 @@ namespace LastKill
 
         [Header("Animation")]
         [SerializeField] private string strafeAnimState = "Strafe";
-        [SerializeField] private string animatorParam = "Strafe";
+        [SerializeField] private string animatorParam = "isStrafe";
         [SerializeField] private int layerIndex;
 
         CameraController _cameraController;
@@ -30,8 +30,7 @@ namespace LastKill
         public override void OnStartState()
         {
             nameState.text = "Strafe";
-            //layerIndex = _animator.Animator.GetLayerIndex("UnderBody");
-            _animator.Animator.SetBool("isStrafe", true);
+            _animator.Animator.SetBool(animatorParam, true);
             _animator.Animator.SetBool(hashAnimBool, true);
             _animator.SetAnimationState(hashAnimState,0);
             
